@@ -1,2 +1,2 @@
 # Algorithm-1
-Algorithm 1 for course scheduling project
+Program software function outlining and pseudocodefor the scheduling algorithnm 1
