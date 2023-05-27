@@ -3,3 +3,5 @@
 
 #ignore all files in __pycache__ directory
 __pycache__/
+
+Algorithm_1.egg-info
