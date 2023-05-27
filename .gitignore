@@ -1,0 +1,5 @@
+#ignore all files in .venv directory
+.venv/
+
+#ignore all files in __pycache__ directory
+__pycache__/
