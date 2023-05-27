@@ -6,4 +6,5 @@ Algorithm 1 for course scheduling project
 To run on a local machine:
 
 pip install -r requirements.txt
+
 flask --app restAPI run
