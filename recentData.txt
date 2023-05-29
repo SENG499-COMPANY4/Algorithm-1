@@ -1,0 +1,1 @@
+{'coursename': 'SENG499', 'year': 4, 'timeslot': 'Wednesday @ 3:00'}
