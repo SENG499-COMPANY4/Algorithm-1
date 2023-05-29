@@ -16,7 +16,14 @@ def hello_world():
 def generateSchedule():
     if request.method == 'GET':
         return getSchedule()
-        
+    elif request.method == 'POST':
+        return saveData()
+    
 def getSchedule():
     return exampleSchedule
-    
+
+def saveData():
+        file = open("recentData.txt", "r+")
+        file.write(str(request.json))
+        file.close()
+        return getSchedule()
