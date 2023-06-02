@@ -73,14 +73,14 @@ class TimeSlot:
         self.end_time = end_time
         
 def check_possibility(profs, courses, rooms, banned_placements, locked_placements):
-    # Add your logic to check if it is possible to generate a schedule
+    # Add schedule algorithenm to check if it is possible to generate a schedule
     # based on the provided data, banned placements, and locked placements
     # Return True if possible, False otherwise
     return True
 
 
 def set_prof_priority(profs):
-    # Add your logic to set the priority of professors
+    # Add schedule algorithenm to set the priority of professors
     # based on any relevant criteria
     # Modify the Prof objects or add an attribute to represent priority
     pass
