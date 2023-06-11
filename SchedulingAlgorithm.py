@@ -27,6 +27,9 @@ def process_course_data(str courseDataPath)
 #             If isPossible is set to 'True', don't update the exported schedule and
 #             display an appropriate message.
 def export_schedule(TimeSlot[] timeslots, bool isPossible)
+	if isPossible is False:
+		print("Schedule is not possible with given constraints, please adjust make adjustments")
+	return timeslots
 
 #function: check_possibility
 #inputs: arrays of profs, courses, and rooms with all relevant data, an array of disallowed
