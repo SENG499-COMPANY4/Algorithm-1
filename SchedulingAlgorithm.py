@@ -1,3 +1,38 @@
+#TYPES
+
+#class: TimeSlot
+#starttimes: array corresponding to every lecture start in a week
+#endtimes: respective array to starttimes but for end times
+#islocked: bool value where True = locked
+class TimeSlot:
+  def __init__(self, starttimes[], endtimes[], islocked)
+    self.starttimes[] = starttimes[]
+    self.endtimes[] = endtimes[]
+    self.islocked = islocked
+
+#class: Course
+#name: the name of the course
+class Course:
+  def __init__(self, name)
+    self.name = name
+
+#class: Prof
+#name: the prof's name
+class Prof:
+  def __init__(self, name)
+    self.name = name
+
+#class: Room
+#building: building code of room
+#number: room number
+class Room:
+  def __init__(self, building, room)
+    self.building = building
+    self.room = room
+
+
+#FUNCTIONS
+
 #function: process_time_slots
 #inputs: a string that holds the path of the time slot data
 #outputs: an array of time slots of type TimeSlot
