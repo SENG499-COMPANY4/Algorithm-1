@@ -1,6 +1,7 @@
 #restAPI.py
 
 from flask import Flask, request
+import SchedulingAlgorithm
 
 app = Flask(__name__)
 
@@ -23,13 +24,14 @@ def getSchedule():
     return readData()
 
 def saveData():
-        file = open("recentData.txt", "r+")
+        file = open("inData.txt", "r+")
         file.write(str(request.json))
         file.close()
+        SchedulingAlgorithm.main()
         return getSchedule()
 
 def readData():
-        file = open("recentData.txt", "r")
+        file = open("outData.txt", "r")
         exampleSchedule = file.read()
         file.close()
         return exampleSchedule
