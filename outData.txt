@@ -1,20 +1,18 @@
-{"schedule": [
-		{
-			"timeslot": 0830,
-			"day": ["Monday", "Thursday"],
-			"coursename": "SENG499",
-			"room": "ECS123",
-			"professor": "Navneet Popli",
-			"type": "lecture"
-		},
-		{
-			"timeslot": 0830,
-			"day": ["Tuesday", "Wednesday", "Friday"],
-			"coursename": "SENG440",
-			"room": "ECS125",
-			"professor": "Mihai SIMA",
-			"type": "lecture"
-		},
-
-	]
-}
+[
+    {
+        "timeslot": 0,
+        "day": [],
+        "coursename": "SENG499",
+        "room": "ECS123",
+        "professor": "Navneet Popli",
+        "type": "lecture"
+    },
+    {
+        "timeslot": 0,
+        "day": [],
+        "coursename": "SENG440",
+        "room": null,
+        "professor": "Navneet Popli",
+        "type": "lecture"
+    }
+]

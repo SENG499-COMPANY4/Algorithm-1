@@ -14,7 +14,7 @@
 		{
 			"day": ["Monday", "Thursday"],
 			"length": 80,
-			"startTime": 0830
+			"startTime": 830
 		},
 		{
 			"day": ["Tuesday", "Wednesday", "Friday"],
@@ -43,7 +43,7 @@
 "professors": [
 		{
 			"name": "Navneet Popli",
-			"courses": ["SENG499", "SENG474"],
+			"courses": [],
 			"timePreferences": [],
 			"coursePreferences": [],
 			"dayPreferences": [],
@@ -51,7 +51,7 @@
 		},
 		{
 			"name": "Rich Little",
-			"courses": ["CSC225", "CSC349A"],
+			"courses": [],
 			"timePreferences": [],
 			"coursePreferences": [],
 			"dayPreferences": [],
