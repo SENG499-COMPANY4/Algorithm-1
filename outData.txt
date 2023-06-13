@@ -14,5 +14,13 @@
         "room": null,
         "professor": "Navneet Popli",
         "type": "lecture"
+    },
+    {
+        "timeslot": 0,
+        "day": [],
+        "coursename": "SENG426",
+        "room": "ECS123",
+        "professor": "Navneet Popli",
+        "type": "lecture"
     }
 ]

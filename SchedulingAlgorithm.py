@@ -117,7 +117,7 @@ def get_pref_room(rooms, courses):
 #def assign_slots(TimeSlot[] timeslots, TimeSlot[] lockedPlacements, Course[] courses)
 
 def get_in_data():
-    f = open("inData.txt", "r")
+    f = open("inData.json", "r")
     inDataJson = f.read()
     inData = json.loads(inDataJson)
     return inData
