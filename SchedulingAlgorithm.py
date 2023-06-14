@@ -6,23 +6,41 @@ import json
 #starttimes: array corresponding to every lecture start in a week
 #endtimes: respective array to starttimes but for end times
 #islocked: bool value where True = locked
+#courses: list of courses assigned to the slot
 class TimeSlot:
-  def __init__(self, starttimes[], endtimes[], islocked)
+  def __init__(self, starttimes[], endtimes[], islocked, Course[] courses)
     self.starttimes[] = starttimes[]
     self.endtimes[] = endtimes[]
     self.islocked = islocked
+    self.courses = courses
 
 #class: Course
-#name: the name of the course
+#coursename: the name of the course
+#lecturesNumber: 
+#labsNumber: 
+#tutorialsNumber: 
+#capacity: 
 class Course:
-  def __init__(self, name)
-    self.name = name
+  def __init__(self, name, lecturesNumber, labsNumber, tutorialsNumber, capacity)
+    self.coursename = coursename
+    self.lecturesNumber = lecturesNumber
+    self.labsNumber = labsNumber
+    self.tutorialsNumber = tutorialsNumber
+    self.capacity = capacity
 
 #class: Prof
 #name: the prof's name
+#courses: 
+#timePreferences: 
+#dayPreferences: 
+#equipmentPreferences: 
 class Prof:
-  def __init__(self, name)
+  def __init__(self, name, courses, timePreferences, dayPreferences, equipmentPreferences)
     self.name = name
+    self.courses = courses
+    self.timePreferences = timePreferences
+    self.dayPreferences = dayPreferences
+    self.equipmentPreferences = equipmentPreferences
 
 #class: Room
 #building: building code of room
@@ -132,16 +150,22 @@ def get_pref_room(rooms, courses):
             return None
 
 #function: lock_course
-#inputs: the array of timeslots, the array of locked course timeslots, the course to lock
+#inputs: the array of locked course timeslots, the course to lock
 #outputs: none
 #description: This function manually locks a course in a timeslot.
-#def lock_course(TimeSlot[] timeslots, TimeSlot[] lockedPlacements, Course courseToLock)
+def lock_course(TimeSlot[] lockedPlacements, Course courseToLock):
+  #assuming if lockedPlacements is null it was initialized already as an empty array
+  lockedPlacements.append(courseToLock)
+return None
 
 #function: unlock_course
 #inputs: the array of locked course timeslots, the course to lock
 #outputs: none
 #description: This function manually unlocks a course in a timeslot.
-#def unlock_course(TimeSlot[] lockedPlacements, Course courseToUnlock)
+def unlock_course(TimeSlot[] lockedPlacements, Course courseToUnlock):
+  if courseToUnlock in lockedPlacements:
+    lockedPlacements.remove(courseToUnlock)
+return None
 
 #function: assign_slots
 #inputs: the array of timeslots, the array of locked placements, the array of courses with
@@ -149,7 +173,14 @@ def get_pref_room(rooms, courses):
 #outputs: none
 #description: This function uses an algorithm to assign courses to timeslots based on a
 #             weighted priority.
-#def assign_slots(TimeSlot[] timeslots, TimeSlot[] lockedPlacements, Course[] courses)
+import random
+
+def assign_slots(TimeSlot[] timeslots, TimeSlot[] lockedPlacements, Course[] courses):
+  #for now just assigning at random and ignoring locked courses
+  #this assumes by the time this function is called the courses will have all required data in their data type
+  for course in courses:
+    slot = random.randint(0,len(timeslots))
+    timeslots[slot].courses.append(course)
 
 def get_in_data():
     f = open("inData.json", "r")
