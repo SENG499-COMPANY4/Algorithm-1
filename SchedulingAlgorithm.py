@@ -1,4 +1,4 @@
-
+import datetime
 import json
 #TYPES
 
@@ -8,9 +8,9 @@ import json
 #islocked: bool value where True = locked
 #courses: list of courses assigned to the slot
 class TimeSlot:
-  def __init__(self, starttimes[], endtimes[], islocked, Course[] courses)
-    self.starttimes[] = starttimes[]
-    self.endtimes[] = endtimes[]
+  def __init__(self, starttimes, endtimes, islocked, courses):
+    self.starttimes = starttimes
+    self.endtimes = endtimes
     self.islocked = islocked
     self.courses = courses
 
@@ -21,7 +21,7 @@ class TimeSlot:
 #tutorialsNumber: 
 #capacity: 
 class Course:
-  def __init__(self, name, lecturesNumber, labsNumber, tutorialsNumber, capacity)
+  def __init__(self, name, lecturesNumber, labsNumber, tutorialsNumber, capacity):
     self.coursename = coursename
     self.lecturesNumber = lecturesNumber
     self.labsNumber = labsNumber
@@ -35,7 +35,7 @@ class Course:
 #dayPreferences: 
 #equipmentPreferences: 
 class Prof:
-  def __init__(self, name, courses, timePreferences, dayPreferences, equipmentPreferences)
+  def __init__(self, name, courses, timePreferences, dayPreferences, equipmentPreferences):
     self.name = name
     self.courses = courses
     self.timePreferences = timePreferences
@@ -46,9 +46,11 @@ class Prof:
 #building: building code of room
 #number: room number
 class Room:
-  def __init__(self, building, room)
+  def __init__(self, building, room):
     self.building = building
     self.room = room
+    
+globalTimeSlots = []
 
 
 #FUNCTIONS
@@ -153,19 +155,19 @@ def get_pref_room(rooms, courses):
 #inputs: the array of locked course timeslots, the course to lock
 #outputs: none
 #description: This function manually locks a course in a timeslot.
-def lock_course(TimeSlot[] lockedPlacements, Course courseToLock):
-  #assuming if lockedPlacements is null it was initialized already as an empty array
-  lockedPlacements.append(courseToLock)
-return None
+def lock_course(lockedPlacements, courseToLock):
+    #assuming if lockedPlacements is null it was initialized already as an empty array
+    lockedPlacements.append(courseToLock)
+    return None
 
 #function: unlock_course
 #inputs: the array of locked course timeslots, the course to lock
 #outputs: none
 #description: This function manually unlocks a course in a timeslot.
-def unlock_course(TimeSlot[] lockedPlacements, Course courseToUnlock):
-  if courseToUnlock in lockedPlacements:
-    lockedPlacements.remove(courseToUnlock)
-return None
+def unlock_course(lockedPlacements, courseToUnlock):
+    if courseToUnlock in lockedPlacements:
+        lockedPlacements.remove(courseToUnlock)
+        return None
 
 #function: assign_slots
 #inputs: the array of timeslots, the array of locked placements, the array of courses with
@@ -175,12 +177,29 @@ return None
 #             weighted priority.
 import random
 
-def assign_slots(TimeSlot[] timeslots, TimeSlot[] lockedPlacements, Course[] courses):
+def create_timeslots(timeslots):
+        
+    for slots in timeslots:
+        Week = {'Monday': None, 'Tuesday': None, 'Wednesday': None, 'Thursday': None, 'Friday': None}
+        for day in slots['day']:
+            Week[day] = slots['startTime']
+        globalTimeSlots.append(TimeSlot(Week, [], False, []))
+    print(globalTimeSlots[1].starttimes)
+
+def assign_slots(lockedPlacements, course):
   #for now just assigning at random and ignoring locked courses
   #this assumes by the time this function is called the courses will have all required data in their data type
-  for course in courses:
-    slot = random.randint(0,len(timeslots))
-    timeslots[slot].courses.append(course)
+  #for course in courses:
+    slot = random.randint(0,len(globalTimeSlots)-1)
+    globalTimeSlots[slot].courses.append(course)
+    print(globalTimeSlots[slot].courses)
+    
+    outDay = {}
+    for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']:
+        if globalTimeSlots[slot].starttimes[day] is not None:
+            outDay[day] = globalTimeSlots[slot].starttimes[day]
+    
+    return outDay
 
 def get_in_data():
     f = open("inData.json", "r")
@@ -192,8 +211,8 @@ def get_in_data():
     
 def create_out_data_dict():
     outData = {
-        "timeslot": 0,
-        "day": [],
+        "starttime": "",
+        #"day": [],
         "coursename": "",
         "room": "",
         "professor": "",
@@ -205,6 +224,8 @@ def create_out_data_dict():
 def schedule_creation(inData):
     
     outDataList = []
+    
+    #print(json.dumps(inData, indent=4))
     for courses in inData['courses']:
         print("Scheduling: " + courses['coursename'])
         outData = create_out_data_dict()
@@ -213,18 +234,21 @@ def schedule_creation(inData):
         
         outData['professor'] = assign_profs(inData['professors'], courses)
         
+        outData['starttime'] = assign_slots(False, courses['coursename'])
+        
         outData['room'] = assign_rooms(inData['rooms'], courses)
         
         #Base requirement all secheduled courses are lectures
         outData['type'] = "lecture"
         
         outDataList.append(outData)
-        #print(json.dumps(outData, indent=4))
+        #
     print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4))
     return outDataList
         
 def main():
     inData = get_in_data()
+    create_timeslots(inData['timeslots'])
     outData = schedule_creation(inData)
     export_schedule(outData, True)
 
