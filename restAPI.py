@@ -24,7 +24,8 @@ def getSchedule():
 def saveData():
     df = open("recentData.json", "r+") #df = data file
     df.truncate(0)
-    df.write(str(request.json))
+    data = json.dumps(request.json)
+    df.write(data)
     df.close()
     return getSchedule()
 
