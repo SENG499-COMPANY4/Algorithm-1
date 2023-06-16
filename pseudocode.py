@@ -9,12 +9,6 @@ def ReadJsonFile(filename): # read the file
         python_dict = json.loads(json_data)
     return python_dict
 
-#def readData(filename): #read in the requirements data
-#        df = open(filename, "r")
-#        requirements = json.load(df)
-#        df.close()
-#        return requirements
-
 #The pseducode function for the time slot abd rearrange the time schedule
 def process_time_slots(path):
     time_slots = []
