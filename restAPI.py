@@ -1,6 +1,7 @@
 #restAPI.py
 
 from flask import Flask, request
+import SchedulingAlgorithm
 import json
 
 app = Flask(__name__)
