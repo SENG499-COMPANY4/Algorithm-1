@@ -23,12 +23,13 @@ def getSchedule():
     return readData()
 
 def saveData():
-    df = open("recentData.json", "r+") #df = data file
-    df.truncate(0)
-    data = json.dumps(request.json)
-    df.write(data)
-    df.close()
-    return getSchedule()
+	df = open("recentData.json", "r+") #df = data file
+	df.truncate(0)
+	data = json.dumps(request.json)
+	df.write(data)
+	df.close()
+	SchedulingAlgorithm.main()
+	return getSchedule()
 
 def readData():
     rf = open("currentSchedule.json", "r") #rf = result file

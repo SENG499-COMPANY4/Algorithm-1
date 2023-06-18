@@ -139,7 +139,7 @@ def process_course_data(courseDataPath):
 def export_schedule(timeslots, isPossible):
     if isPossible is False:
         print("Schedule is not possible with given constraints, please adjust make adjustments")
-    f = open("outData.txt", "w")
+    f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4))
 
 #function: check_possibility
@@ -255,7 +255,7 @@ def assign_slots(lockedPlacements, course):
     return outDay
 
 def get_in_data():
-    f = open("inData.json", "r")
+    f = open("recentData.json", "r")
     inDataJson = f.read()
     inData = json.loads(inDataJson)
     return inData
