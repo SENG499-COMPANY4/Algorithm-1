@@ -1,25 +1,27 @@
 [
-    {
-        "starttime": {
-            "Tuesday": 1530,
-            "Wednesday": 1530,
-            "Friday": 1530
+    [
+        {
+            "starttime": {
+                "Tuesday": 1530,
+                "Wednesday": 1530,
+                "Friday": 1530
+            },
+            "coursename": "SENG499",
+            "room": "ECS123",
+            "professor": "Navneet Popli",
+            "type": "lecture"
         },
-        "coursename": "SENG499",
-        "room": "ECS123",
-        "professor": "Navneet Popli",
-        "type": "lecture"
-    },
-    {
-        "starttime": {
-            "Monday": 830,
-            "Thursday": 830
-        },
-        "coursename": "SENG440",
-        "room": null,
-        "professor": "Navneet Popli",
-        "type": "lecture"
-    },
+        {
+            "starttime": {
+                "Monday": 830,
+                "Thursday": 830
+            },
+            "coursename": "SENG440",
+            "room": null,
+            "professor": "Navneet Popli",
+            "type": "lecture"
+        }
+    ],
     {
         "starttime": {
             "Tuesday": 1530,
