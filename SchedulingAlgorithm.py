@@ -268,6 +268,7 @@ def assign_profs(profs, courses):
 
 def get_pref_prof(profs, courses):
     return profs[0]
+
 #function: assign_rooms
 #inputs: the array of rooms, the array of courses
 #outputs: none
@@ -290,22 +291,27 @@ def get_pref_room(rooms, courses):
             return None
 
 #function: lock_course
-#inputs: the array of locked course timeslots, the course to lock
-#outputs: none
+#inputs: all input data
+#outputs: the array of locked courses
 #description: This function manually locks a course in a timeslot.
-def lock_course(lockedPlacements, courseToLock):
-    #assuming if lockedPlacements is null it was initialized already as an empty array
-    lockedPlacements.append(courseToLock)
-    return None
+def lock_courses(inData):
+    lockedPlacements = []
+    for schedule in inData['lockedSchedule']:
+        lockedPlacements.append(schedule)
+    return lockedPlacements
 
-#function: unlock_course
-#inputs: the array of locked course timeslots, the course to lock
-#outputs: none
-#description: This function manually unlocks a course in a timeslot.
-def unlock_course(lockedPlacements, courseToUnlock):
-    if courseToUnlock in lockedPlacements:
-        lockedPlacements.remove(courseToUnlock)
-        return None
+#function: remove_locked_items
+#inputs: all input data
+#outputs: the same input data without courses that have already been scheduled
+#description: This fuction removes redundant data. In the future, it should be adapted to 
+#             account for any data that the system keeps that is recorded during other
+#             functions, like how many classes a professor is currently listed to teach.
+def remove_locked_items(inData):
+    for schedule in inData['lockedSchedule']:
+        for course in inData['courses']:
+            if course['coursename'] == schedule['coursename']:
+                inData['courses'].remove(course)
+    return inData
 
 #function: assign_slots
 #inputs: the array of timeslots, the array of locked placements, the array of courses with
@@ -345,8 +351,6 @@ def get_in_data():
     inData = json.loads(inDataJson)
     return inData
     
-    
-    
 def create_out_data_dict():
     outData = {
         "starttime": "",
@@ -362,7 +366,11 @@ def create_out_data_dict():
 def schedule_creation(inData):
     
     outDataList = []
-    
+
+    #Parse out data that doesn't need to be scheduled, locked schedule components
+    outDataList.append(lock_courses(inData))
+    inData = remove_locked_items(inData)
+
     #print(json.dumps(inData, indent=4))
     for courses in inData['courses']:
         print("Scheduling: " + courses['coursename'])
@@ -380,7 +388,7 @@ def schedule_creation(inData):
         outData['type'] = "lecture"
         
         outDataList.append(outData)
-        #
+
     print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4))
     return outDataList
         
