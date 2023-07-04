@@ -368,7 +368,7 @@ def schedule_creation(inData):
     outDataList = []
 
     #Parse out data that doesn't need to be scheduled, locked schedule components
-    outDataList.append(lock_courses(inData))
+    outDataList = lock_courses(inData)
     inData = remove_locked_items(inData)
 
     #print(json.dumps(inData, indent=4))
