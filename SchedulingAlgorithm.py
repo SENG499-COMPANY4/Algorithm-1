@@ -22,12 +22,14 @@ class TimeSlot:
 #tutorialsNumber: 
 #capacity: 
 class Course:
-  def __init__(self, name, coursename, lecturesNumber, labsNumber, tutorialsNumber, capacity):
+  def __init__(self, coursename, lecturesNumber, labsNumber, tutorialsNumber, capacity, needsTech, room):
     self.coursename = coursename
     self.lecturesNumber = lecturesNumber
     self.labsNumber = labsNumber
     self.tutorialsNumber = tutorialsNumber
     self.capacity = capacity
+    self.needsTech = needsTech
+    self.room = room
 
 #class: Prof
 #name: the prof's name
@@ -46,10 +48,17 @@ class Prof:
 #class: Room
 #building: building code of room
 #number: room number
+#capacity: max seats
+#hastech: bool for if room is equipped for connecting technology
 class Room:
-  def __init__(self, building, room):
+  def __init__(self, building, number, capacity, hasTech):
     self.building = building
-    self.room = room
+    self.number = number
+    self.capacity = capacity
+    self.hasTech = hasTech
+
+  def __str__(self):
+    return self.building + self.number
     
 globalTimeSlots = []
 
@@ -211,10 +220,36 @@ def set_prof_priority(profs, courses):
 
 #function: associate_priority_rooms
 #inputs: the array of available rooms, the array of courses
-#outputs: none
+#outputs: list of tuples of courses matched with a list of possible rooms sorted by size
 #description: This function assigns indicators of priority rooms for courses, such as
 #             placing CS courses in ECS classrooms.
-#def associate_priority_rooms(Room[] rooms, Course[] courses)
+def associate_priority_rooms(rooms, courses):
+    rooms.sort(key=lambda x: x.capacity, reverse = True)
+    courses.sort(key=lambda x: x.capacity, reverse = True)
+    roomPossibilities = []
+    for course in courses:
+        possibilities = []
+        for room in rooms:
+            if(course.capacity <= room.capacity and not (course.needsTech and not room.hasTech)):
+                possibilities.append(room)
+        roomPossibilities.append((course, possibilities))
+    return roomPossibilities
+
+#function: assign_rooms
+#inputs: the array of courses, the respective array of tuples with first element being the
+#        course and second element being the list of possible rooms
+#outputs: none
+#description: This function assigns the courses to their possible rooms based on a priority
+#             by seats needed. If it can't match a course to a room the room attribute will
+#             remain None.
+def assign_rooms(courses, roomPossibilities):
+  assignedRooms = []
+  for k in range(len(courses)):
+    for room in roomPossibilities[k][1]:
+      if room not in assignedRooms:
+        courses[k].room = room
+        assignedRooms.append(room)
+        break
 
 #function: assign_profs
 #inputs: the array of profs, the array of courses
