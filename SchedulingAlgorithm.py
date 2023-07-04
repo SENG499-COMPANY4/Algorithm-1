@@ -1,5 +1,6 @@
 import datetime
 import json
+import random
 #TYPES
 
 #class: TimeSlot
@@ -21,12 +22,14 @@ class TimeSlot:
 #tutorialsNumber: 
 #capacity: 
 class Course:
-  def __init__(self, name, lecturesNumber, labsNumber, tutorialsNumber, capacity):
-    self.coursename = name
+  def __init__(self, coursename, lecturesNumber, labsNumber, tutorialsNumber, capacity, needsTech, room):
+    self.coursename = coursename
     self.lecturesNumber = lecturesNumber
     self.labsNumber = labsNumber
     self.tutorialsNumber = tutorialsNumber
     self.capacity = capacity
+    self.needsTech = needsTech
+    self.room = room
 
 #class: Prof
 #name: the prof's name
@@ -45,10 +48,17 @@ class Prof:
 #class: Room
 #building: building code of room
 #number: room number
+#capacity: max seats
+#hastech: bool for if room is equipped for connecting technology
 class Room:
-  def __init__(self, building, room):
+  def __init__(self, building, number, capacity, hasTech):
     self.building = building
-    self.room = room
+    self.number = number
+    self.capacity = capacity
+    self.hasTech = hasTech
+
+  def __str__(self):
+    return self.building + self.number
     
 globalTimeSlots = []
 
@@ -136,8 +146,8 @@ def process_course_data(courseDataPath):
 #description: This function takes the time slot data and exports the schedule as a JSON.
 #             If isPossible is set to 'True', don't update the exported schedule and
 #             display an appropriate message.
-def export_schedule(timeslots, isPossible):
-    if isPossible is False:
+def export_schedule(timeslots):
+    if check_possibility(timeslots) is False:
         print("Schedule is not possible with given constraints, please adjust make adjustments")
     f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4))
@@ -148,13 +158,58 @@ def export_schedule(timeslots, isPossible):
 #outputs: a boolean value indicating if it is possible to generate a schedule
 #description: This function checks if it is possible for a schedule to be determined,
 #             given all provided data and any banned or locked placements.
-#def check_possibility(Prof[] profs, Course[] courses, Room[] rooms, TimeSlot[] bannedPlacements, TimeSlot[] lockedPlacements)
+def check_possibility(finalSchedule):
+    slots = getAllTimeSlots(finalSchedule)
+    for slot in slots:
+        slotCourses = []
+        for course in finalSchedule:
+            if course['starttime'] == slot:
+                slotCourses.append(course)
+        print("Time: " + str(slot) + "\nCourse: " + str(slotCourses)) 
+        profs = [i['professor'] for i in slotCourses]
+        if len(profs) != len(set(profs)):
+            print("Schedule is invalid, prof conflict")
+            return False        
+        rooms = [i['room'] for i in slotCourses]
+        if len(rooms) != len(set(rooms)):
+            print("Schedule is invalid, room conflict")
+            return False
+    return True
+
+
+def getAllTimeSlots(finalSchedule):
+    slots = [start['starttime'] for start in finalSchedule]
+    slotList = []
+    for slot in slots:
+        if slot not in slotList:
+            slotList.append(slot)
+    return slotList
 
 #function: set_prof_priority
 #inputs: an array of the profs with their associated data
 #outputs: none
 #description: This function uses a weighting algorithm to assign priority scores for profs.
-#def set_prof_priority(Prof[] profs)
+def set_prof_priority(profs, courses):
+    # Do priority classes first (Start 4b and work down to 1a)
+    # Get prof teaching requirements
+
+    validProf = []
+    random.shuffle(profs)
+
+    for prof in profs:
+        if (courses['coursename'] in prof['coursePreferences'])\
+        and (len(prof['courses']) <= 4):
+            validProf.append(prof)
+        
+    
+    # Limit prof list to only valid profs
+    # Tentatively place profs to course
+    # If no prof exists the ignore preferences list
+    if len(validProf) > 0:
+        return validProf[0]
+    else:
+        return None
+
 
 #function: set_course_priority
 #inputs: an array of the courses with their associated data
@@ -165,10 +220,36 @@ def export_schedule(timeslots, isPossible):
 
 #function: associate_priority_rooms
 #inputs: the array of available rooms, the array of courses
-#outputs: none
+#outputs: list of tuples of courses matched with a list of possible rooms sorted by size
 #description: This function assigns indicators of priority rooms for courses, such as
 #             placing CS courses in ECS classrooms.
-#def associate_priority_rooms(Room[] rooms, Course[] courses)
+def associate_priority_rooms(rooms, courses):
+    rooms.sort(key=lambda x: x.capacity, reverse = True)
+    courses.sort(key=lambda x: x.capacity, reverse = True)
+    roomPossibilities = []
+    for course in courses:
+        possibilities = []
+        for room in rooms:
+            if(course.capacity <= room.capacity and not (course.needsTech and not room.hasTech)):
+                possibilities.append(room)
+        roomPossibilities.append((course, possibilities))
+    return roomPossibilities
+
+#function: assign_rooms
+#inputs: the array of courses, the respective array of tuples with first element being the
+#        course and second element being the list of possible rooms
+#outputs: none
+#description: This function assigns the courses to their possible rooms based on a priority
+#             by seats needed. If it can't match a course to a room the room attribute will
+#             remain None.
+def assign_rooms(courses, roomPossibilities):
+  assignedRooms = []
+  for k in range(len(courses)):
+    for room in roomPossibilities[k][1]:
+      if room not in assignedRooms:
+        courses[k].room = room
+        assignedRooms.append(room)
+        break
 
 #function: assign_profs
 #inputs: the array of profs, the array of courses
@@ -177,9 +258,13 @@ def export_schedule(timeslots, isPossible):
 #             that preferences are met in order of their predetermined weighted priority.
 def assign_profs(profs, courses):
     
-    profs = get_pref_prof(profs, courses)
-    profs['courses'].append(courses['coursename'])
-    return profs['name']
+    prof = set_prof_priority(profs, courses)
+
+    if prof is None:
+        return None
+
+    prof['courses'].append(courses['coursename'])
+    return prof['name']
 
 def get_pref_prof(profs, courses):
     return profs[0]
@@ -234,7 +319,7 @@ def remove_locked_items(inData):
 #outputs: none
 #description: This function uses an algorithm to assign courses to timeslots based on a
 #             weighted priority.
-import random
+
 
 def create_timeslots(timeslots):
         
@@ -311,7 +396,7 @@ def main():
     inData = get_in_data()
     create_timeslots(inData['timeslots'])
     outData = schedule_creation(inData)
-    export_schedule(outData, True)
+    export_schedule(outData)
 
 if __name__ == "__main__":
     main()
