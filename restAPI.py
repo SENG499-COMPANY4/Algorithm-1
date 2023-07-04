@@ -18,6 +18,11 @@ def generateSchedule():
         return saveData()
     elif request.method == 'PUT':
          return editData()
+
+@app.route("/validate", methods=['POST'])
+def validateSchedule():
+    if request.method == 'POST':
+        return validateData()
     
 def getSchedule():
     return readData()
@@ -49,3 +54,7 @@ def editData():
     df.close()
     rf.close()
     return getSchedule()
+
+def validateData():
+    data = request.json
+    return str(SchedulingAlgorithm.check_possibility(data))
