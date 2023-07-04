@@ -1,5 +1,6 @@
 import datetime
 import json
+import random
 #TYPES
 
 #class: TimeSlot
@@ -145,8 +146,8 @@ def process_course_data(courseDataPath):
 #description: This function takes the time slot data and exports the schedule as a JSON.
 #             If isPossible is set to 'True', don't update the exported schedule and
 #             display an appropriate message.
-def export_schedule(timeslots, isPossible):
-    if isPossible is False:
+def export_schedule(timeslots):
+    if check_possibility(timeslots) is False:
         print("Schedule is not possible with given constraints, please adjust make adjustments")
     f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4))
@@ -157,13 +158,58 @@ def export_schedule(timeslots, isPossible):
 #outputs: a boolean value indicating if it is possible to generate a schedule
 #description: This function checks if it is possible for a schedule to be determined,
 #             given all provided data and any banned or locked placements.
-#def check_possibility(Prof[] profs, Course[] courses, Room[] rooms, TimeSlot[] bannedPlacements, TimeSlot[] lockedPlacements)
+def check_possibility(finalSchedule):
+    slots = getAllTimeSlots(finalSchedule)
+    for slot in slots:
+        slotCourses = []
+        for course in finalSchedule:
+            if course['starttime'] == slot:
+                slotCourses.append(course)
+        print("Time: " + str(slot) + "\nCourse: " + str(slotCourses)) 
+        profs = [i['professor'] for i in slotCourses]
+        if len(profs) != len(set(profs)):
+            print("Schedule is invalid, prof conflict")
+            return False        
+        rooms = [i['room'] for i in slotCourses]
+        if len(rooms) != len(set(rooms)):
+            print("Schedule is invalid, room conflict")
+            return False
+    return True
+
+
+def getAllTimeSlots(finalSchedule):
+    slots = [start['starttime'] for start in finalSchedule]
+    slotList = []
+    for slot in slots:
+        if slot not in slotList:
+            slotList.append(slot)
+    return slotList
 
 #function: set_prof_priority
 #inputs: an array of the profs with their associated data
 #outputs: none
 #description: This function uses a weighting algorithm to assign priority scores for profs.
-#def set_prof_priority(Prof[] profs)
+def set_prof_priority(profs, courses):
+    # Do priority classes first (Start 4b and work down to 1a)
+    # Get prof teaching requirements
+
+    validProf = []
+    random.shuffle(profs)
+
+    for prof in profs:
+        if (courses['coursename'] in prof['coursePreferences'])\
+        and (len(prof['courses']) <= 4):
+            validProf.append(prof)
+        
+    
+    # Limit prof list to only valid profs
+    # Tentatively place profs to course
+    # If no prof exists the ignore preferences list
+    if len(validProf) > 0:
+        return validProf[0]
+    else:
+        return None
+
 
 #function: set_course_priority
 #inputs: an array of the courses with their associated data
@@ -212,9 +258,13 @@ def assign_rooms(courses, roomPossibilities):
 #             that preferences are met in order of their predetermined weighted priority.
 def assign_profs(profs, courses):
     
-    profs = get_pref_prof(profs, courses)
-    profs['courses'].append(courses['coursename'])
-    return profs['name']
+    prof = set_prof_priority(profs, courses)
+
+    if prof is None:
+        return None
+
+    prof['courses'].append(courses['coursename'])
+    return prof['name']
 
 def get_pref_prof(profs, courses):
     return profs[0]
@@ -263,7 +313,7 @@ def unlock_course(lockedPlacements, courseToUnlock):
 #outputs: none
 #description: This function uses an algorithm to assign courses to timeslots based on a
 #             weighted priority.
-import random
+
 
 def create_timeslots(timeslots):
         
@@ -338,7 +388,7 @@ def main():
     inData = get_in_data()
     create_timeslots(inData['timeslots'])
     outData = schedule_creation(inData)
-    export_schedule(outData, True)
+    export_schedule(outData)
 
 if __name__ == "__main__":
     main()

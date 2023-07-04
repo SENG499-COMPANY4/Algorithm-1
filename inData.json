@@ -41,7 +41,7 @@
 		},
 		{
 			"coursename": "SENG426",
-			"noScheduleOverlap": ["SENG499", "440"],
+			"noScheduleOverlap": ["SENG499", "SENG440"],
 			"lecturesNumber": 1,
 			"labsNumber": 0,
 			"tutorialsNumber": 0,
@@ -53,7 +53,7 @@
 			"name": "Navneet Popli",
 			"courses": [],
 			"timePreferences": [],
-			"coursePreferences": [],
+			"coursePreferences": ["SENG499", "SENG426"],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		},
@@ -61,7 +61,7 @@
 			"name": "Rich Little",
 			"courses": [],
 			"timePreferences": [],
-			"coursePreferences": [],
+			"coursePreferences": ["SENG440"],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		}
