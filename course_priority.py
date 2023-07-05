@@ -1,41 +1,32 @@
-def check_schedule_overlap(course_a, course_b, course_c): 
-#check the course in a b c and return the course does not conflict with each other in the time slots     
-conflict = False
-    for course in [course_b, course_c]:
-#call for the course name check time to see whether it conflicts with each other or not
-    if course['coursename'] in course_a['noScheduleOverlap']:
-            conflict = True
-            break
+def schedule_course(course, conflicting_courses, time_slots):
+    conflict_exists = check_schedule_conflict(course, conflicting_courses, time_slots)
 
-    return conflict
+    if not conflict_exists:
+        return True  # Course can be scheduled without conflicts
 
-#give an example for the fourth year SUMMER: Taken all madatory course make sure it does not conflicts with each others
-course_a = {
-    "coursename": "SENG499",
-    "noScheduleOverlap": ["SENG440", "SENG426"],
-    "lecturesNumber": 1,
-    "labsNumber": 2,
-    "tutorialsNumber": 0,
-    "capacity": 100
-}
+    # Reschedule the course
+    available_time_slots = [slot for slot in time_slots if course not in slot.courses]
 
-course_b = {
-    "coursename": "SENG440",
-    "noScheduleOverlap": ["SENG499", "SENG426"],
-    "lecturesNumber": 1,
-    "labsNumber": 0,
-    "tutorialsNumber": 0,
-    "capacity": 150
-}
+    for time_slot in available_time_slots:
+        time_slot.courses.append(course)
+        conflict_exists = schedule_course(course, conflicting_courses, time_slots)
 
-course_c = {
-    "coursename": "SENG426",
-    "noScheduleOverlap": ["SENG499", "SENG440"],
-    "lecturesNumber": 1,
-    "labsNumber": 0,
-    "tutorialsNumber": 0,
-    "capacity": 50
-}
+        if not conflict_exists:
+            return True  # Course rescheduled successfully without conflicts
 
-conflict = check_schedule_overlap(course_a, course_b, course_c)
-print(conflict)  # Output: False (SENG499 does not conflict with SENG440 or SENG426)
+        # Remove the course from the current time slot to try another one
+        time_slot.courses.remove(course)
+
+    return False  # Course cannot be scheduled without conflicts
+
+# Example usage
+course = "SENG 499"
+conflicting_courses = ["SENG 440", "SENG 426"]
+
+#Using the array of time slots called 'timeSlots'
+schedule_success = schedule_course(course, conflicting_courses, timeSlots)
+
+if schedule_success:
+    print(f"{course} scheduled successfully without conflicts.")
+else:
+    print(f"Failed to schedule {course} due to conflicts.")
