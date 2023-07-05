@@ -14,6 +14,7 @@ class TimeSlot:
     self.endtimes = endtimes
     self.islocked = islocked
     self.courses = courses
+    self.profs = []
 
 #class: Course
 #coursename: the name of the course
@@ -173,7 +174,7 @@ def check_possibility(finalSchedule):
         rooms = [i['room'] for i in slotCourses]
         if len(rooms) != len(set(rooms)):
             print("Schedule is invalid, room conflict")
-            return False
+            #return False
     return True
 
 
@@ -319,8 +320,6 @@ def remove_locked_items(inData):
 #outputs: none
 #description: This function uses an algorithm to assign courses to timeslots based on a
 #             weighted priority.
-
-
 def create_timeslots(timeslots):
         
     for slots in timeslots:
@@ -328,21 +327,30 @@ def create_timeslots(timeslots):
         for day in slots['day']:
             Week[day] = slots['startTime']
         globalTimeSlots.append(TimeSlot(Week, [], False, []))
-    print(globalTimeSlots[1].starttimes)
+    
+    for i in range(len(globalTimeSlots)):
+        print(globalTimeSlots[i].starttimes)
 
-def assign_slots(lockedPlacements, course):
+def assign_slots(course, prof):
   #for now just assigning at random and ignoring locked courses
   #this assumes by the time this function is called the courses will have all required data in their data type
   #for course in courses:
-    slot = random.randint(0,len(globalTimeSlots)-1)
-    globalTimeSlots[slot].courses.append(course)
-    print(globalTimeSlots[slot].courses)
-    
+    #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
-    for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']:
-        if globalTimeSlots[slot].starttimes[day] is not None:
-            outDay[day] = globalTimeSlots[slot].starttimes[day]
-    
+    for slot in globalTimeSlots:
+        if len([i for i in course["noScheduleOverlap"] if i in slot.courses]) == 0\
+        and prof not in slot.profs:
+
+            slot.courses.append(course["coursename"])
+            slot.profs.append(prof)
+
+            print("Timeslot: " + str(slot.courses))
+            for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']:
+                if slot.starttimes[day] is not None:
+                    outDay[day] = slot.starttimes[day]
+            print(outDay)
+            break
+        
     return outDay
 
 def get_in_data():
@@ -380,7 +388,7 @@ def schedule_creation(inData):
         
         outData['professor'] = assign_profs(inData['professors'], courses)
         
-        outData['starttime'] = assign_slots(False, courses['coursename'])
+        outData['starttime'] = assign_slots(courses, outData['professor'])
         
         outData['room'] = assign_rooms(inData['rooms'], courses)
         

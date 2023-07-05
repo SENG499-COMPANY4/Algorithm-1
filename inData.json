@@ -17,6 +17,11 @@
 			"startTime": 830
 		},
 		{
+			"day": ["Monday", "Thursday"],
+			"length": 80,
+			"startTime": 1000
+		},
+		{
 			"day": ["Tuesday", "Wednesday", "Friday"],
 			"length": 50,
 			"startTime": 1530
@@ -46,6 +51,14 @@
 			"labsNumber": 0,
 			"tutorialsNumber": 0,
 			"capacity": 50
+		},
+		{
+			"coursename": "SENG474",
+			"noScheduleOverlap": [],
+			"lecturesNumber": 1,
+			"labsNumber": 0,
+			"tutorialsNumber": 0,
+			"capacity": 50
 		}
 	],
 "professors": [
@@ -61,7 +74,7 @@
 			"name": "Rich Little",
 			"courses": [],
 			"timePreferences": [],
-			"coursePreferences": ["SENG440"],
+			"coursePreferences": ["SENG440", "SENG474"],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		}

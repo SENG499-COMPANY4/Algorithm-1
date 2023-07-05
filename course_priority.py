@@ -1,13 +1,13 @@
 def check_schedule_overlap(course_a, course_b, course_c): 
 #check the course in a b c and return the course does not conflict with each other in the time slots     
-conflict = False
+    conflict = False
     for course in [course_b, course_c]:
-#call for the course name check time to see whether it conflicts with each other or not
-    if course['coursename'] in course_a['noScheduleOverlap']:
-            conflict = True
-            break
+    #call for the course name check time to see whether it conflicts with each other or not
+        if course['coursename'] in course_a['noScheduleOverlap']:
+                conflict = True
+                break
 
-    return conflict
+        return conflict
 
 #give an example for the fourth year SUMMER: Taken all madatory course make sure it does not conflicts with each others
 course_a = {
