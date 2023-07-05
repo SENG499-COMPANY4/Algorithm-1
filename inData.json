@@ -17,6 +17,11 @@
 			"startTime": 830
 		},
 		{
+			"day": ["Monday", "Thursday"],
+			"length": 80,
+			"startTime": 1000
+		},
+		{
 			"day": ["Tuesday", "Wednesday", "Friday"],
 			"length": 50,
 			"startTime": 1530
@@ -41,7 +46,15 @@
 		},
 		{
 			"coursename": "SENG426",
-			"noScheduleOverlap": ["SENG499", "440"],
+			"noScheduleOverlap": ["SENG499", "SENG440"],
+			"lecturesNumber": 1,
+			"labsNumber": 0,
+			"tutorialsNumber": 0,
+			"capacity": 50
+		},
+		{
+			"coursename": "SENG474",
+			"noScheduleOverlap": [],
 			"lecturesNumber": 1,
 			"labsNumber": 0,
 			"tutorialsNumber": 0,
@@ -53,7 +66,7 @@
 			"name": "Navneet Popli",
 			"courses": [],
 			"timePreferences": [],
-			"coursePreferences": [],
+			"coursePreferences": ["SENG499", "SENG426"],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		},
@@ -61,9 +74,32 @@
 			"name": "Rich Little",
 			"courses": [],
 			"timePreferences": [],
-			"coursePreferences": [],
+			"coursePreferences": ["SENG440", "SENG474"],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		}
-	]
+	],
+"lockedSchedule": [
+    {
+        "starttime": {
+            "Tuesday": 1530,
+            "Wednesday": 1530,
+            "Friday": 1530
+        },
+        "coursename": "SENG499",
+        "room": "ECS123",
+        "professor": "Navneet Popli",
+        "type": "lecture"
+    },
+    {
+        "starttime": {
+            "Monday": 830,
+            "Thursday": 830
+        },
+        "coursename": "SENG440",
+        "room": null,
+        "professor": "Rich Little",
+        "type": "lecture"
+    }
+]
 }

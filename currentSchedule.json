@@ -1,9 +1,8 @@
 [
     {
         "starttime": {
-            "Tuesday": 1530,
-            "Wednesday": 1530,
-            "Friday": 1530
+            "Monday": 830,
+            "Thursday": 830
         },
         "coursename": "SENG499",
         "room": "ECS123",
@@ -12,12 +11,12 @@
     },
     {
         "starttime": {
-            "Monday": 830,
-            "Thursday": 830
+            "Monday": 1000,
+            "Thursday": 1000
         },
         "coursename": "SENG440",
         "room": null,
-        "professor": "Navneet Popli",
+        "professor": "Rich Little",
         "type": "lecture"
     },
     {
@@ -29,6 +28,16 @@
         "coursename": "SENG426",
         "room": "ECS123",
         "professor": "Navneet Popli",
+        "type": "lecture"
+    },
+    {
+        "starttime": {
+            "Monday": 830,
+            "Thursday": 830
+        },
+        "coursename": "SENG474",
+        "room": "ECS123",
+        "professor": "Rich Little",
         "type": "lecture"
     }
 ]
