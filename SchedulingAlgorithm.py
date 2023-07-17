@@ -355,13 +355,17 @@ def create_out_data_dict():
     
     return outData
 
-def schedule_creation(inData, courses, profs, rooms):
+def schedule_creation(inData):
     
     outDataList = []
 
     #Parse out data that doesn't need to be scheduled, locked schedule components
     outDataList = lock_courses(inData)
     inData = remove_locked_items(inData)
+
+    courses = process_course_data(inData)
+    profs = process_prof_data(inData)
+    rooms = process_room_data(inData)
 
     #print(json.dumps(inData, indent=4))
     for course in courses:
@@ -387,11 +391,8 @@ def schedule_creation(inData, courses, profs, rooms):
 def main():
     inData = get_in_data()
     timeSlots = process_time_slots(inData)
-    courses = process_course_data(inData)
-    profs = process_prof_data(inData)
-    rooms = process_room_data(inData)
     create_timeslots(timeSlots)
-    outData = schedule_creation(inData, courses, profs, rooms)
+    outData = schedule_creation(inData)
     export_schedule(outData)
 
 if __name__ == "__main__":
