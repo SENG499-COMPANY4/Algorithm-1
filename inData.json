@@ -64,17 +64,17 @@
 "professors": [
 		{
 			"name": "Navneet Popli",
-			"courses": [],
+			"courses": ["SENG499", "SENG426"],
 			"timePreferences": [],
-			"coursePreferences": ["SENG499", "SENG426"],
+			"coursePreferences": [],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		},
 		{
 			"name": "Rich Little",
-			"courses": [],
+			"courses": ["SENG440", "SENG474"],
 			"timePreferences": [],
-			"coursePreferences": ["SENG440", "SENG474"],
+			"coursePreferences": [],
 			"dayPreferences": [],
 			"equipmentPreferences": []
 		}
