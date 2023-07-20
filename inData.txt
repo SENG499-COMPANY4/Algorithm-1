@@ -1,6 +1,0 @@
-{'rooms': [{'location': 'ECS123', 'capacity': 100, 'equipment': ['HDMI', 'projector', 'chalkboard']}, {'location': 'ELW220', 'capacity': 50, 'equipment': ['HDMI', 'projector', 'whiteboard']}], 'timeslots': [{'day': ['Monday', 'Thursday'], 'length': 80, 'startTime': 830}, {'day': ['Tuesday', 'Wednesday', 'Friday'], 'length': 50, 'startTime': 1530}], 'courses': [{'coursename': 'SENG499', 'noScheduleOverlap': ['SENG440', 'SENG426'], 'lecturesNumber': 1, 'labsNumber': 2, 'tutorialsNumber': 0, 'capacity': 100}, {'coursename': 'SENG440', 'noScheduleOverlap': ['SENG499', 'SENG426'], 'lecturesNumber': 1, 'labsNumber': 0, 'tutorialsNumber': 0, 'capacity': 150}, {'coursename': 'SENG426', 'noScheduleOverlap': ['SENG499', '440'], 'lecturesNumber': 1, 'labsNumber': 0, 'tutorialsNumber': 0, 'capacity': 50}], 'professors': [{'name': 'Navneet Popli', 'courses': [], 'timePreferences': [], 'coursePreferences': [], 'dayPreferences': [], 'equipmentPreferences': []}, {'name': 'Rich Little', 'courses': [], 'timePreferences': [], 'coursePreferences': [], 'dayPreferences': [], 'equipmentPreferences': []}]}references": [],
-			"dayPreferences": [],
-			"equipmentPreferences": []
-		}
-	]
-}
