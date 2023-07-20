@@ -1,0 +1,19 @@
+{
+    "timeslots": [
+        {
+            "day": ["Monday"],
+            "length": 50,
+            "startTime": 830
+        },
+        {
+            "day": ["Monday"],
+            "length": 50,
+            "startTime": 930
+        },
+        {
+            "day": ["Monday"],
+            "length": 50,
+            "startTime": 1030
+        }
+    ]
+}
