@@ -43,6 +43,7 @@ class Prof:
   def __init__(self, name, courses, timePreferences, coursePreferences, dayPreferences, equipmentPreferences):
     self.name = name
     self.courses = courses
+    self.assignedCourses = []
     self.timePreferences = timePreferences
     self.coursePreferences = coursePreferences
     self.dayPreferences = dayPreferences
@@ -204,7 +205,7 @@ def set_prof_priority(profs, courses, index):
         return None
 
 def prof_priority(prof, courses, index):
-    requirements = [(courses.coursename in prof.coursePreferences), (len(prof.courses) <= 4)]
+    requirements = [(courses.coursename in prof.courses), (len(prof.assignedCourses) <= 4)]
     reqSize = (len(requirements) - index)
     return all(requirements[:reqSize]), len(requirements[:reqSize])
 
@@ -260,7 +261,7 @@ def assign_profs(profs, courses):
     if prof is None:
         return None
 
-    prof.courses.append(courses.coursename)
+    prof.assignedCourses.append(courses.coursename)
     return prof.name
 
 def get_pref_prof(profs, courses):

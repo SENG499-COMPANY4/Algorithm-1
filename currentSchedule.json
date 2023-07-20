@@ -6,7 +6,7 @@
         },
         "coursename": "SENG499",
         "room": "ECS123",
-        "professor": "Navneet Popli",
+        "professor": "Prof A",
         "type": "Lecture"
     },
     {
@@ -16,7 +16,7 @@
         },
         "coursename": "SENG440",
         "room": null,
-        "professor": "Rich Little",
+        "professor": "Prof A",
         "type": "Lecture"
     },
     {
