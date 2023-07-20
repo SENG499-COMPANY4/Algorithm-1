@@ -11,9 +11,94 @@
             "startTime": 1130
         },
         {
+            "day": ["Monday"],
+            "length": 180,
+            "startTime": 1430
+        },
+        {
+            "day": ["Monday"],
+            "length": 180,
+            "startTime": 1730
+        },
+        {
             "day": ["Tuesday"],
             "length": 180,
-            "startTime": 230
+            "startTime": 830
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 180,
+            "startTime": 1130
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 180,
+            "startTime": 1430
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 180,
+            "startTime": 1730
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 180,
+            "startTime": 830
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 180,
+            "startTime": 1130
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 180,
+            "startTime": 1430
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 180,
+            "startTime": 1730
+        },
+        {
+            "day": ["Thursday"],
+            "length": 180,
+            "startTime": 830
+        },
+        {
+            "day": ["Thursday"],
+            "length": 180,
+            "startTime": 1130
+        },
+        {
+            "day": ["Thursday"],
+            "length": 180,
+            "startTime": 1430
+        },
+        {
+            "day": ["Thursday"],
+            "length": 180,
+            "startTime": 1730
+        },
+        {
+            "day": ["Friday"],
+            "length": 180,
+            "startTime": 830
+        },
+        {
+            "day": ["Friday"],
+            "length": 180,
+            "startTime": 1130
+        },
+        {
+            "day": ["Friday"],
+            "length": 180,
+            "startTime": 1430
+        },
+        {
+            "day": ["Friday"],
+            "length": 180,
+            "startTime": 1730
         }
     ]
 }
