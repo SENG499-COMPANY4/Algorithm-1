@@ -1,6 +1,7 @@
 import datetime
 import json
 import random
+import math
 #TYPES
 
 #class: TimeSlot
@@ -336,10 +337,11 @@ def assign_slots(course, prof, Type):
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
     for slot in globalTimeSlots[Type]:
-        if len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0\
-        and course.coursename not in slot.courses\
+        if (((Type == "Lab") and (slot.courses.count(course.coursename) <= math.ceil(course.labsNumber/5)) and (len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0))
+             or ((Type == "Tutorial") and (slot.courses.count(course.coursename) <= math.ceil(course.tutorialsNumber/5)) and (len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0))
+             or ((Type == "Lecture") and (len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0)))\
         and ((prof is None) or (prof not in slot.profs)):
-            print()
+            
             slot.courses.append(course.coursename)
             slot.profs.append(prof)
 
@@ -349,7 +351,6 @@ def assign_slots(course, prof, Type):
                     outDay[day] = slot.startTimes[day]
             print(outDay)
             break
-        print()
         
     return outDay
 
@@ -439,6 +440,11 @@ def schedule_creation(inData):
     return outDataList
         
 def main():
+    #Clear globalTimeSlots
+    globalTimeSlots['Lecture'] = []
+    globalTimeSlots['Lab'] = []
+    globalTimeSlots['Tutorial'] = []
+
     inData = get_in_data()
 
     lectureTimeSlots = process_time_slots("Lecture")
