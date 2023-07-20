@@ -62,7 +62,8 @@ class Room:
   def __str__(self):
     return self.building + self.number
     
-globalTimeSlots = []
+globalTimeSlots = {'Lecture': [], 'Lab': [], 'Tutorial': []}
+
 
 
 #FUNCTIONS
@@ -72,10 +73,17 @@ globalTimeSlots = []
 #outputs: an array of time slots of type TimeSlot
 #description: This function processes the time slot data and returns it as a custom type
 #             that can be processed by the algorithm.
-def process_time_slots(inData):
+def process_time_slots(ScheduleType):
+
+    inFile = ScheduleType + "Timeslots.json"
+
+    f = open(inFile, "r")
+
+    timeslotData = json.loads(f.read())
+    
     time_slots = []
     
-    for slotData in inData['timeslots']:
+    for slotData in timeslotData['timeslots']:
         time_slots.append(TimeSlot(slotData['day'], slotData['startTime'], slotData['length']))
 
     return time_slots
@@ -142,11 +150,17 @@ def check_possibility(finalSchedule):
             if course['starttime'] == slot:
                 slotCourses.append(course)
         print("Time: " + str(slot) + "\nCourse: " + str(slotCourses)) 
+        
         profs = [i['professor'] for i in slotCourses]
+        #remove none values
+        profs = list(filter(lambda item: item != '', profs))
         if len(profs) != len(set(profs)):
             print("Schedule is invalid, prof conflict")
             return False        
+        
         rooms = [i['room'] for i in slotCourses]
+        #remove none values
+        rooms = list(filter(lambda item: item is not None, rooms))
         if len(rooms) != len(set(rooms)):
             print("Schedule is invalid, room conflict")
             #return False
@@ -303,27 +317,28 @@ def remove_locked_items(inData):
 #outputs: none
 #description: This function uses an algorithm to assign courses to timeslots based on a
 #             weighted priority.
-def create_timeslots(timeslots):
-        
+def create_timeslots(timeslots, Type):
+    print(Type)
     for slots in timeslots:
         Week = {'Monday': None, 'Tuesday': None, 'Wednesday': None, 'Thursday': None, 'Friday': None}
         for day in slots.day:
             Week[day] = slots.startTimes
-        globalTimeSlots.append(TimeSlot(Week, Week, 0))
+        globalTimeSlots[Type].append(TimeSlot(Week, Week, 0))
     
-    for i in range(len(globalTimeSlots)):
-        print(globalTimeSlots[i].startTimes)
+    for i in range(len(globalTimeSlots[Type])):
+        print(globalTimeSlots[Type][i].startTimes)
 
-def assign_slots(course, prof):
+def assign_slots(course, prof, Type):
   #for now just assigning at random and ignoring locked courses
   #this assumes by the time this function is called the courses will have all required data in their data type
   #for course in courses:
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
-    for slot in globalTimeSlots:
+    for slot in globalTimeSlots[Type]:
         if len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0\
-        and prof not in slot.profs:
-
+        and course.coursename not in slot.courses\
+        and ((prof is None) or (prof not in slot.profs)):
+            print()
             slot.courses.append(course.coursename)
             slot.profs.append(prof)
 
@@ -336,6 +351,9 @@ def assign_slots(course, prof):
         print()
         
     return outDay
+
+def checkTimeslotOverlap():
+    pass
 
 def get_in_data():
     f = open("recentData.json", "r")
@@ -360,8 +378,9 @@ def schedule_creation(inData):
     outDataList = []
 
     #Parse out data that doesn't need to be scheduled, locked schedule components
-    outDataList = lock_courses(inData)
-    inData = remove_locked_items(inData)
+    if 'lockedSchedule' in inData:
+        outDataList = lock_courses(inData)
+        inData = remove_locked_items(inData)
 
     courses = process_course_data(inData)
     profs = process_prof_data(inData)
@@ -376,22 +395,59 @@ def schedule_creation(inData):
         
         outData['professor'] = assign_profs(profs, course)
         
-        outData['starttime'] = assign_slots(course, outData['professor'])
+        outData['starttime'] = assign_slots(course, outData['professor'], "Lecture")
         
         outData['room'] = assign_rooms(course, rooms)
         
         #Base requirement all secheduled courses are lectures
-        outData['type'] = "lecture"
+        outData['type'] = "Lecture"
         
         outDataList.append(outData)
+
+    for course in courses:
+        for i in range(course.labsNumber):
+            print("Scheduling Labs: " + course.coursename)
+            outData = create_out_data_dict()
+        
+            outData['coursename'] = course.coursename
+
+            outData['starttime'] = assign_slots(course, None, "Lab")
+        
+            outData['room'] = assign_rooms(course, rooms)
+
+            outData['type'] = "Lab"
+        
+            outDataList.append(outData)
+    
+    for course in courses:
+        for i in range(course.tutorialsNumber):
+            print("Scheduling Labs: " + course.coursename)
+            outData = create_out_data_dict()
+        
+            outData['coursename'] = course.coursename
+
+            outData['starttime'] = assign_slots(course, None, "Tutorial")
+        
+            outData['room'] = assign_rooms(course, rooms)
+
+            outData['type'] = "Tutorial"
+        
+            outDataList.append(outData)
 
     print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4))
     return outDataList
         
 def main():
     inData = get_in_data()
-    timeSlots = process_time_slots(inData)
-    create_timeslots(timeSlots)
+
+    lectureTimeSlots = process_time_slots("Lecture")
+    labTimeSlots = process_time_slots("Lab")
+    TutorialTimeSlots = process_time_slots("Tutorial")
+
+    create_timeslots(lectureTimeSlots, "Lecture")
+    create_timeslots(labTimeSlots, "Lab")
+    create_timeslots(TutorialTimeSlots, "Tutorial")
+
     outData = schedule_creation(inData)
     export_schedule(outData)
 

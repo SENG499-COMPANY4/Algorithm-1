@@ -7,7 +7,7 @@
         "coursename": "SENG499",
         "room": "ECS123",
         "professor": "Navneet Popli",
-        "type": "lecture"
+        "type": "Lecture"
     },
     {
         "starttime": {
@@ -17,7 +17,7 @@
         "coursename": "SENG440",
         "room": null,
         "professor": "Rich Little",
-        "type": "lecture"
+        "type": "Lecture"
     },
     {
         "starttime": {
@@ -28,7 +28,7 @@
         "coursename": "SENG426",
         "room": "ECS123",
         "professor": "Navneet Popli",
-        "type": "lecture"
+        "type": "Lecture"
     },
     {
         "starttime": {
@@ -38,6 +38,78 @@
         "coursename": "SENG474",
         "room": "ECS123",
         "professor": "Rich Little",
-        "type": "lecture"
+        "type": "Lecture"
+    },
+    {
+        "starttime": {
+            "Monday": 830
+        },
+        "coursename": "SENG499",
+        "room": "ECS123",
+        "professor": "",
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": 1130
+        },
+        "coursename": "SENG499",
+        "room": "ECS123",
+        "professor": "",
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": 230
+        },
+        "coursename": "SENG440",
+        "room": null,
+        "professor": "",
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": 830
+        },
+        "coursename": "SENG474",
+        "room": "ECS123",
+        "professor": "",
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": 1130
+        },
+        "coursename": "SENG474",
+        "room": "ECS123",
+        "professor": "",
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": 230
+        },
+        "coursename": "SENG474",
+        "room": "ECS123",
+        "professor": "",
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": 830
+        },
+        "coursename": "SENG440",
+        "room": null,
+        "professor": "",
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Monday": 930
+        },
+        "coursename": "SENG426",
+        "room": "ECS123",
+        "professor": "",
+        "type": "Tutorial"
     }
 ]
