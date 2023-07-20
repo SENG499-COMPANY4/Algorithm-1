@@ -10,10 +10,11 @@ import math
 #islocked: bool value where True = locked
 #courses: list of courses assigned to the slot
 class TimeSlot:
-  def __init__(self, day, startTimes, length):
+  def __init__(self, day, startTimes, length, sortkey=None):
     self.day = day
     self.startTimes = startTimes
     self.length = length
+    self.sortkey = sortkey
     self.courses = []
     self.profs = []
     self.rooms = []
@@ -323,9 +324,12 @@ def create_timeslots(timeslots, Type):
     print(Type)
     for slots in timeslots:
         Week = {'Monday': None, 'Tuesday': None, 'Wednesday': None, 'Thursday': None, 'Friday': None}
+        sortkey = None
         for day in slots.day:
             Week[day] = slots.startTimes
-        globalTimeSlots[Type].append(TimeSlot(Week, Week, 0))
+            if slots.startTimes is not None:
+                sortkey = slots.startTimes
+        globalTimeSlots[Type].append(TimeSlot(Week, Week, 0, sortkey))
     
     for i in range(len(globalTimeSlots[Type])):
         print(globalTimeSlots[Type][i].startTimes)
@@ -336,16 +340,24 @@ def assign_slots(course, prof, Type):
   #for course in courses:
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
-    for slot in globalTimeSlots[Type]:
-        if (((Type == "Lab") and (slot.courses.count(course.coursename) <= math.ceil(course.labsNumber/5)) and (len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0))
-             or ((Type == "Tutorial") and (slot.courses.count(course.coursename) <= math.ceil(course.tutorialsNumber/5)) and (len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0))
-             or ((Type == "Lecture") and (len([i for i in course.noScheduleOverlap if i in slot.courses]) == 0)))\
+    if Type == "Lecture":
+        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+    elif Type == "Lab" or Type == "Tutorial":
+        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: x.sortkey, reverse=False)
+    else:
+        formattedTimeslots = globalTimeSlots[Type]
+
+    for slot in formattedTimeslots:
+        key = list({ele for ele in slot.day if slot.day[ele]})[0]
+        if (((Type == "Lab") and checkTimeslotOverlap(course, key, slot.day[key], Type))
+             or ((Type == "Tutorial") and checkTimeslotOverlap(course, key, slot.day[key], Type))
+             or ((Type == "Lecture") and (len([i for i in course.noScheduleOverlap if i in [i[0] for i in slot.courses]]) == 0)))\
         and ((prof is None) or (prof not in slot.profs)):
             
-            slot.courses.append(course.coursename)
+            slot.courses.append((course.coursename, Type))
             slot.profs.append(prof)
 
-            print("Timeslot: " + str(slot.courses))
+            print("Timeslot: " + str([i[0] for i in slot.courses]))
             for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']:
                 if slot.startTimes[day] is not None:
                     outDay[day] = slot.startTimes[day]
@@ -354,8 +366,29 @@ def assign_slots(course, prof, Type):
         
     return outDay
 
-def checkTimeslotOverlap():
-    pass
+def checkTimeslotOverlap(course, key, time, Type):
+
+    #TODO: account for time range
+    allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
+
+    dateList = [d for d in allTimeSlots if (key in d.day and d.day[key] == time)]
+    overLaps = 0
+    for slot in dateList:
+        if (Type == "Lab") and (([i[0] for i in slot.courses if (i[1] == "Lab")].count(course.coursename) >= math.ceil(course.labsNumber/5)) or ([i[0] for i in slot.courses if (i[1] == "Lecture")].count(course.coursename) > 0)):
+            overLaps += 1
+        elif (Type == "Tutorial") and ([i[0] for i in slot.courses if (i[1] == "Tutorial")].count(course.coursename) >= math.ceil(course.tutorialsNumber/5)):
+            overLaps += 1
+        pass
+
+        overLaps += len([i for i in (course.noScheduleOverlap) if i in [i[0] for i in slot.courses]])
+        pass
+    if overLaps == 0:
+        return True
+    else:
+        return False
+
+
+        
 
 def get_in_data():
     f = open("recentData.json", "r")
@@ -389,6 +422,7 @@ def schedule_creation(inData):
     rooms = process_room_data(inData)
 
     #print(json.dumps(inData, indent=4))
+    #Scheduling Lectures
     for course in courses:
         print("Scheduling: " + course.coursename)
         outData = create_out_data_dict()
@@ -406,6 +440,7 @@ def schedule_creation(inData):
         
         outDataList.append(outData)
 
+    #Scheduling Labs
     for course in courses:
         for i in range(course.labsNumber):
             print("Scheduling Labs: " + course.coursename)
@@ -421,6 +456,7 @@ def schedule_creation(inData):
         
             outDataList.append(outData)
     
+    #Scheduling Tutorials
     for course in courses:
         for i in range(course.tutorialsNumber):
             print("Scheduling Labs: " + course.coursename)
