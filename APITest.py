@@ -57,7 +57,7 @@ def test_APIGetScheduleValid():
     
     assert int(response.status_code) == 200
 
-def test_APIGetScheduleUnauthorized():
+def test_APIGetScheduleNoAuth():
     environment = getAddress('Stage')
     response = getRequest(environment, '/generateSchedule')
     
@@ -188,6 +188,7 @@ def test_APIValidateNoAuth():
 #Run tests!
 if __name__ == "__main__":
     test_APIGetScheduleValid()
+    test_APIGetScheduleNoAuth()
     test_APIPutScheduleInvalid()
     test_APIPutScheduleNoAuth()
     test_APIPutScheduleValid()
