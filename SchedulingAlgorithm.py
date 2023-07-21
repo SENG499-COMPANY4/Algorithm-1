@@ -1,7 +1,9 @@
-import datetime
+from datetime import *
 import json
 import random
 import math
+from copy import deepcopy
+from difflib import SequenceMatcher
 #TYPES
 
 #class: TimeSlot
@@ -63,7 +65,7 @@ class Room:
     self.hasTech = hasTech
 
   def __str__(self):
-    return self.building + self.number
+    return self.location
     
 globalTimeSlots = {'Lecture': [], 'Lab': [], 'Tutorial': []}
 
@@ -86,8 +88,11 @@ def process_time_slots(ScheduleType):
     
     time_slots = []
     
+    
+
     for slotData in timeslotData['timeslots']:
-        time_slots.append(TimeSlot(slotData['day'], slotData['startTime'], slotData['length']))
+        time = datetime.strptime(slotData['startTime'], "%H:%M")
+        time_slots.append(TimeSlot(slotData['day'], time, slotData['length']))
 
     return time_slots
 
@@ -137,7 +142,7 @@ def export_schedule(timeslots):
     if check_possibility(timeslots) is False:
         print("Schedule is not possible with given constraints, please adjust make adjustments")
     f = open("currentSchedule.json", "w")
-    f.write(json.dumps(timeslots, indent=4))
+    f.write(json.dumps(timeslots, indent=4, default=jsonSerial))
 
 #function: check_possibility
 #inputs: arrays of profs, courses, and rooms with all relevant data, an array of disallowed
@@ -230,7 +235,7 @@ def associate_priority_rooms(rooms, courses):
     for course in courses:
         possibilities = []
         for room in rooms:
-            if(course.capacity <= room.capacity and not (course.needsTech and not room.hasTech)):
+            if(course.capacity <= room.capacity):
                 possibilities.append(room)
         roomPossibilities.append((course, possibilities))
     return roomPossibilities
@@ -242,7 +247,7 @@ def associate_priority_rooms(rooms, courses):
 #description: This function assigns the courses to their possible rooms based on a priority
 #             by seats needed. If it can't match a course to a room the room attribute will
 #             remain None.
-def assign_rooms(courses, roomPossibilities):
+def assign_rooms_all(courses, roomPossibilities):
   assignedRooms = []
   for k in range(len(courses)):
     for room in roomPossibilities[k][1]:
@@ -250,6 +255,37 @@ def assign_rooms(courses, roomPossibilities):
         courses[k].room = room
         assignedRooms.append(room)
         break
+    if courses[k].room == None:
+      for room in roomPossibilities[k][1]:
+         #find room where assigned
+         index = 0
+         for course in courses:
+            if course.room == room:
+               break
+            else:
+               index += 1
+         #remove room from possibilities
+         recursiveRoomPossibilities = deepcopy(roomPossibilities)
+         roomIndex = 0
+         for j in roomPossibilities[index][1]:
+            if j == room:
+               break
+            else:
+               roomIndex += 1
+         del recursiveRoomPossibilities[index][1][roomIndex]
+
+         #call function with new inputs
+         saveCourses = deepcopy(courses)
+         for course in courses:
+            course.room = None
+         assign_rooms_all(courses, recursiveRoomPossibilities)
+         #if there is a course with no room continue loop with course's room as None
+         for course in courses:
+            if course.room == None:
+               courses = deepcopy(saveCourses)
+               continue
+         #if no courses have a None room return the output
+         return
 
 #function: assign_profs
 #inputs: the array of profs, the array of courses
@@ -329,7 +365,7 @@ def create_timeslots(timeslots, Type):
             Week[day] = slots.startTimes
             if slots.startTimes is not None:
                 sortkey = slots.startTimes
-        globalTimeSlots[Type].append(TimeSlot(Week, Week, 0, sortkey))
+        globalTimeSlots[Type].append(TimeSlot(Week, Week, slots.length, sortkey))
     
     for i in range(len(globalTimeSlots[Type])):
         print(globalTimeSlots[Type][i].startTimes)
@@ -341,7 +377,8 @@ def assign_slots(course, prof, Type):
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
     if Type == "Lecture":
-        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+        #formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+        formattedTimeslots = globalTimeSlots[Type]
     elif Type == "Lab" or Type == "Tutorial":
         formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: x.sortkey, reverse=False)
     else:
@@ -360,7 +397,7 @@ def assign_slots(course, prof, Type):
             print("Timeslot: " + str([i[0] for i in slot.courses]))
             for day in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']:
                 if slot.startTimes[day] is not None:
-                    outDay[day] = slot.startTimes[day]
+                    outDay[day] = str(slot.startTimes[day].hour) + ":" + str(slot.startTimes[day].minute)
             print(outDay)
             break
         
@@ -371,7 +408,14 @@ def checkTimeslotOverlap(course, key, time, Type):
     #TODO: account for time range
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
 
-    dateList = [d for d in allTimeSlots if (key in d.day and d.day[key] == time)]
+    length = 0
+    if Type == "Lab":
+        length = 180
+    elif Type == "Tutorial":
+        length = 60
+
+    dateList = [d for d in allTimeSlots if ((key in d.day and d.day[key] is not None) and (d.day[key] >= time and d.day[key] < (time + timedelta(minutes=length))))]
+    pass
     overLaps = 0
     for slot in dateList:
         if (Type == "Lab") and (([i[0] for i in slot.courses if (i[1] == "Lab")].count(course.coursename) >= math.ceil(course.labsNumber/5)) or ([i[0] for i in slot.courses if (i[1] == "Lecture")].count(course.coursename) > 0)):
@@ -418,6 +462,9 @@ def schedule_creation(inData):
         inData = remove_locked_items(inData)
 
     courses = process_course_data(inData)
+
+    courses.sort(key= lambda x: str(x.noScheduleOverlap))
+
     profs = process_prof_data(inData)
     rooms = process_room_data(inData)
 
@@ -433,12 +480,35 @@ def schedule_creation(inData):
         
         outData['starttime'] = assign_slots(course, outData['professor'], "Lecture")
         
-        outData['room'] = assign_rooms(course, rooms)
+        
         
         #Base requirement all secheduled courses are lectures
         outData['type'] = "Lecture"
         
         outDataList.append(outData)
+
+
+    slots = getAllTimeSlots(outDataList)
+    for slot in slots:
+        slotCourses = []
+        roomCourses = []
+        for course in outDataList:
+            if course['starttime'] == slot:
+                slotCourses.append(course)
+        for course in slotCourses:
+            for allCourses in courses:
+                if allCourses.coursename == course['coursename']:
+                    roomCourses.append(allCourses)
+
+
+        roomPossibilities = associate_priority_rooms(rooms, roomCourses)
+        assign_rooms_all(roomCourses, roomPossibilities)
+        for course in roomCourses:
+            for k in outDataList:
+                if k['coursename'] == course.coursename:
+                    k['room'] = str(course.room)
+
+
 
     #Scheduling Labs
     for course in courses:
@@ -455,6 +525,8 @@ def schedule_creation(inData):
             outData['type'] = "Lab"
         
             outDataList.append(outData)
+
+
     
     #Scheduling Tutorials
     for course in courses:
@@ -472,9 +544,17 @@ def schedule_creation(inData):
         
             outDataList.append(outData)
 
-    print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4))
+    print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4, default=jsonSerial))
     return outDataList
-        
+
+def jsonSerial(obj):
+    if isinstance(obj, (datetime, date)):
+        time = str(obj.hour) + ":" + str(obj.minute)
+        return time
+    raise TypeError ("Type %s is not serializable" % type(obj))
+
+
+
 def main():
     #Clear globalTimeSlots
     globalTimeSlots['Lecture'] = []
