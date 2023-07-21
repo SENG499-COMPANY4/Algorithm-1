@@ -5,8 +5,8 @@
             "Thursday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
-        "professor": "Martin, Travis",
+        "room": "ECS 123",
+        "professor": "Laidlaw, Mark",
         "type": "Lecture"
     },
     {
@@ -15,7 +15,7 @@
             "Thursday": "10:0"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": null,
         "type": "Lecture"
     },
@@ -25,8 +25,8 @@
             "Thursday": "11:30"
         },
         "coursename": "MATH 100",
-        "room": null,
-        "professor": "Schoeneberg, Torsten",
+        "room": "ECS 128",
+        "professor": "Thompson, Tom",
         "type": "Lecture"
     },
     {
@@ -35,7 +35,7 @@
             "Thursday": "11:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "Sodhi, Asmita",
         "type": "Lecture"
     },
@@ -45,8 +45,8 @@
             "Thursday": "13:0"
         },
         "coursename": "ENGR 130",
-        "room": "ECS 104",
-        "professor": "Stegman, Kelly",
+        "room": "ECS 123",
+        "professor": "Senini, Ash",
         "type": "Lecture"
     },
     {
@@ -55,7 +55,7 @@
             "Thursday": "14:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 123",
         "professor": "Firmani, Flavio",
         "type": "Lecture"
     },
@@ -65,8 +65,8 @@
             "Thursday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
-        "professor": "Laidlaw, Mark",
+        "room": "ECS 116",
+        "professor": "Chatwin-Davies, Aidan",
         "type": "Lecture"
     },
     {
@@ -75,8 +75,8 @@
             "Thursday": "10:0"
         },
         "coursename": "MATH 101",
-        "room": null,
-        "professor": "Thompson, Tom",
+        "room": "ECS 123",
+        "professor": "Awais, Muhammad",
         "type": "Lecture"
     },
     {
@@ -85,8 +85,8 @@
             "Thursday": "11:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
-        "professor": "Firmani, Flavio",
+        "room": "ECS 123",
+        "professor": "Saghlatoun, Saeedeh",
         "type": "Lecture"
     },
     {
@@ -95,7 +95,7 @@
             "Thursday": "13:0"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "Thirumarai Chelvan, Ilamparithi",
         "type": "Lecture"
     },
@@ -105,8 +105,8 @@
             "Thursday": "16:0"
         },
         "coursename": "CSC 111",
-        "room": null,
-        "professor": "Corless, Jason",
+        "room": "ECS 116",
+        "professor": "Bird, Bill",
         "type": "Lecture"
     },
     {
@@ -115,7 +115,7 @@
             "Thursday": "14:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "Estey, Anthony",
         "type": "Lecture"
     },
@@ -124,7 +124,7 @@
             "Tuesday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -133,7 +133,7 @@
             "Tuesday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -142,7 +142,7 @@
             "Wednesday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -151,7 +151,7 @@
             "Wednesday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -160,7 +160,7 @@
             "Friday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -169,7 +169,7 @@
             "Friday": "8:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -178,7 +178,7 @@
             "Tuesday": "11:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -187,7 +187,7 @@
             "Tuesday": "11:30"
         },
         "coursename": "PHYS 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -196,7 +196,7 @@
             "Wednesday": "11:30"
         },
         "coursename": "ENGR 130",
-        "room": "ECS 104",
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -205,7 +205,7 @@
             "Friday": "11:30"
         },
         "coursename": "ENGR 130",
-        "room": "ECS 104",
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -214,7 +214,7 @@
             "Tuesday": "14:30"
         },
         "coursename": "ENGR 130",
-        "room": "ECS 104",
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -223,7 +223,7 @@
             "Wednesday": "14:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -232,7 +232,7 @@
             "Wednesday": "14:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -241,7 +241,7 @@
             "Friday": "14:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -250,7 +250,7 @@
             "Friday": "14:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -259,7 +259,7 @@
             "Monday": "17:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -268,7 +268,7 @@
             "Monday": "17:30"
         },
         "coursename": "ENGR 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -277,7 +277,7 @@
             "Tuesday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -286,7 +286,7 @@
             "Tuesday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -295,7 +295,7 @@
             "Wednesday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -304,7 +304,7 @@
             "Wednesday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -313,7 +313,7 @@
             "Friday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -322,7 +322,7 @@
             "Friday": "8:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -331,7 +331,7 @@
             "Tuesday": "11:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -340,7 +340,7 @@
             "Tuesday": "11:30"
         },
         "coursename": "PHYS 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -349,7 +349,7 @@
             "Wednesday": "11:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -358,7 +358,7 @@
             "Wednesday": "11:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -367,7 +367,7 @@
             "Friday": "11:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -376,7 +376,7 @@
             "Friday": "11:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -385,7 +385,7 @@
             "Tuesday": "14:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -394,7 +394,7 @@
             "Tuesday": "14:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -403,7 +403,7 @@
             "Wednesday": "14:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -412,7 +412,7 @@
             "Wednesday": "14:30"
         },
         "coursename": "ENGR 120",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -421,7 +421,7 @@
             "Tuesday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -430,7 +430,7 @@
             "Tuesday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -439,7 +439,7 @@
             "Wednesday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -448,7 +448,7 @@
             "Wednesday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -457,7 +457,7 @@
             "Thursday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -466,7 +466,7 @@
             "Thursday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -475,7 +475,7 @@
             "Friday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -484,7 +484,7 @@
             "Friday": "17:30"
         },
         "coursename": "CSC 111",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -493,7 +493,7 @@
             "Friday": "14:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -502,7 +502,7 @@
             "Friday": "14:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -511,7 +511,7 @@
             "Monday": "17:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -520,7 +520,7 @@
             "Monday": "17:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -529,7 +529,7 @@
             "Tuesday": "17:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -538,7 +538,7 @@
             "Tuesday": "17:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -547,7 +547,7 @@
             "Wednesday": "17:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -556,7 +556,7 @@
             "Wednesday": "17:30"
         },
         "coursename": "CSC 115",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Lab"
     },
@@ -565,7 +565,7 @@
             "Monday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -574,7 +574,7 @@
             "Monday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -583,7 +583,7 @@
             "Tuesday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -592,7 +592,7 @@
             "Tuesday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -601,7 +601,7 @@
             "Wednesday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -610,7 +610,7 @@
             "Wednesday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -619,7 +619,7 @@
             "Thursday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -628,7 +628,7 @@
             "Thursday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -637,7 +637,7 @@
             "Friday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -646,7 +646,7 @@
             "Friday": "9:30"
         },
         "coursename": "MATH 110",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -655,7 +655,7 @@
             "Monday": "10:30"
         },
         "coursename": "MATH 100",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -664,7 +664,7 @@
             "Monday": "10:30"
         },
         "coursename": "MATH 100",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -673,7 +673,7 @@
             "Tuesday": "10:30"
         },
         "coursename": "MATH 100",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -682,7 +682,7 @@
             "Tuesday": "10:30"
         },
         "coursename": "MATH 100",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -691,7 +691,7 @@
             "Wednesday": "10:30"
         },
         "coursename": "MATH 100",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -700,7 +700,7 @@
             "Wednesday": "10:30"
         },
         "coursename": "MATH 100",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -709,7 +709,7 @@
             "Monday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -718,7 +718,7 @@
             "Monday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -727,7 +727,7 @@
             "Tuesday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -736,7 +736,7 @@
             "Tuesday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -745,7 +745,7 @@
             "Wednesday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -754,7 +754,7 @@
             "Wednesday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -763,7 +763,7 @@
             "Thursday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -772,7 +772,7 @@
             "Thursday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -781,7 +781,7 @@
             "Friday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -790,7 +790,7 @@
             "Friday": "10:30"
         },
         "coursename": "MATH 109",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -799,7 +799,7 @@
             "Monday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -808,7 +808,7 @@
             "Monday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -817,7 +817,7 @@
             "Tuesday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -826,7 +826,7 @@
             "Tuesday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -835,7 +835,7 @@
             "Wednesday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -844,7 +844,7 @@
             "Wednesday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -853,7 +853,7 @@
             "Thursday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -862,7 +862,7 @@
             "Thursday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -871,7 +871,7 @@
             "Friday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -880,7 +880,7 @@
             "Friday": "9:30"
         },
         "coursename": "MATH 101",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -889,7 +889,7 @@
             "Monday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -898,7 +898,7 @@
             "Monday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -907,7 +907,7 @@
             "Tuesday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -916,7 +916,7 @@
             "Tuesday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -925,7 +925,7 @@
             "Wednesday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -934,7 +934,7 @@
             "Wednesday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -943,7 +943,7 @@
             "Thursday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     },
@@ -952,7 +952,7 @@
             "Thursday": "10:30"
         },
         "coursename": "ENGR 141",
-        "room": null,
+        "room": "ECS 116",
         "professor": "",
         "type": "Tutorial"
     }

@@ -488,12 +488,25 @@ def schedule_creation(inData):
         outDataList.append(outData)
 
 
-    roomPossibilities = associate_priority_rooms(rooms, courses)
-    assign_rooms_all(courses, roomPossibilities)
-    for course in courses:
-        for k in outDataList:
-            if k['coursename'] == course.coursename:
-                k['room'] = str(course.room)
+    slots = getAllTimeSlots(outDataList)
+    for slot in slots:
+        slotCourses = []
+        roomCourses = []
+        for course in outDataList:
+            if course['starttime'] == slot:
+                slotCourses.append(course)
+        for course in slotCourses:
+            for allCourses in courses:
+                if allCourses.coursename == course['coursename']:
+                    roomCourses.append(allCourses)
+
+
+        roomPossibilities = associate_priority_rooms(rooms, roomCourses)
+        assign_rooms_all(roomCourses, roomPossibilities)
+        for course in roomCourses:
+            for k in outDataList:
+                if k['coursename'] == course.coursename:
+                    k['room'] = str(course.room)
 
 
 
