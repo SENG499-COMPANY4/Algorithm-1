@@ -11,9 +11,169 @@
             "startTime": 1000
         },
         {
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": 1130
+        },
+        {
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": 1300
+        },
+        {
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": 1530
+        },
+        {
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": 1700
+        },
+        {
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": 1830
+        },
+        {
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": 2000
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 830
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 930
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1030
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1130
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1230
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1330
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1430
+        },
+        {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
             "startTime": 1530
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1630
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1730
+        },
+        {
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": 1830
+        },
+        {
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": 1330
+        },
+        {
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": 1530
+        },
+        {
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": 1830
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": 1330
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": 1530
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": 1830
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 1330
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 1530
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 1830
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 1330
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 1530
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 1830
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 1330
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 1530
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 1830
+        },
+        {
+            "day": ["Monday", "Wednesday"],
+            "length": 80,
+            "startTime": 1630
         }
     ]
 }

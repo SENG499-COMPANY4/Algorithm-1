@@ -2,18 +2,103 @@
     "timeslots": [
         {
             "day": ["Monday"],
-            "length": 180,
+            "length": 170,
             "startTime": 830
         },
         {
             "day": ["Monday"],
-            "length": 180,
+            "length": 170,
+            "startTime": 1130
+        },
+        {
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": 1430
+        },
+        {
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": 1730
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": 830
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 170,
             "startTime": 1130
         },
         {
             "day": ["Tuesday"],
-            "length": 180,
-            "startTime": 230
+            "length": 170,
+            "startTime": 1430
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": 1730
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 830
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 1130
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 1430
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": 1730
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 830
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 1130
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 1430
+        },
+        {
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": 1730
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 830
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 1130
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 1430
+        },
+        {
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": 1730
         }
     ]
 }
