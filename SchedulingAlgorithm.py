@@ -2,6 +2,7 @@ from datetime import *
 import json
 import random
 import math
+from copy import deepcopy
 from difflib import SequenceMatcher
 #TYPES
 
@@ -64,7 +65,7 @@ class Room:
     self.hasTech = hasTech
 
   def __str__(self):
-    return self.building + self.number
+    return self.location
     
 globalTimeSlots = {'Lecture': [], 'Lab': [], 'Tutorial': []}
 
@@ -234,7 +235,7 @@ def associate_priority_rooms(rooms, courses):
     for course in courses:
         possibilities = []
         for room in rooms:
-            if(course.capacity <= room.capacity and not (course.needsTech and not room.hasTech)):
+            if(course.capacity <= room.capacity):
                 possibilities.append(room)
         roomPossibilities.append((course, possibilities))
     return roomPossibilities
@@ -246,7 +247,7 @@ def associate_priority_rooms(rooms, courses):
 #description: This function assigns the courses to their possible rooms based on a priority
 #             by seats needed. If it can't match a course to a room the room attribute will
 #             remain None.
-def assign_rooms(courses, roomPossibilities):
+def assign_rooms_all(courses, roomPossibilities):
   assignedRooms = []
   for k in range(len(courses)):
     for room in roomPossibilities[k][1]:
@@ -254,6 +255,37 @@ def assign_rooms(courses, roomPossibilities):
         courses[k].room = room
         assignedRooms.append(room)
         break
+    if courses[k].room == None:
+      for room in roomPossibilities[k][1]:
+         #find room where assigned
+         index = 0
+         for course in courses:
+            if course.room == room:
+               break
+            else:
+               index += 1
+         #remove room from possibilities
+         recursiveRoomPossibilities = deepcopy(roomPossibilities)
+         roomIndex = 0
+         for j in roomPossibilities[index][1]:
+            if j == room:
+               break
+            else:
+               roomIndex += 1
+         del recursiveRoomPossibilities[index][1][roomIndex]
+
+         #call function with new inputs
+         saveCourses = deepcopy(courses)
+         for course in courses:
+            course.room = None
+         assign_rooms_all(courses, recursiveRoomPossibilities)
+         #if there is a course with no room continue loop with course's room as None
+         for course in courses:
+            if course.room == None:
+               courses = deepcopy(saveCourses)
+               continue
+         #if no courses have a None room return the output
+         return
 
 #function: assign_profs
 #inputs: the array of profs, the array of courses
@@ -448,12 +480,22 @@ def schedule_creation(inData):
         
         outData['starttime'] = assign_slots(course, outData['professor'], "Lecture")
         
-        outData['room'] = assign_rooms(course, rooms)
+        
         
         #Base requirement all secheduled courses are lectures
         outData['type'] = "Lecture"
         
         outDataList.append(outData)
+
+
+    roomPossibilities = associate_priority_rooms(rooms, courses)
+    assign_rooms_all(courses, roomPossibilities)
+    for course in courses:
+        for k in outDataList:
+            if k['coursename'] == course.coursename:
+                k['room'] = str(course.room)
+
+
 
     #Scheduling Labs
     for course in courses:
@@ -470,6 +512,8 @@ def schedule_creation(inData):
             outData['type'] = "Lab"
         
             outDataList.append(outData)
+
+
     
     #Scheduling Tutorials
     for course in courses:
