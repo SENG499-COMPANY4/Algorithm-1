@@ -57,6 +57,12 @@ def test_APIGetScheduleValid():
     
     assert int(response.status_code) == 200
 
+def test_APIGetScheduleUnauthorized():
+    environment = getAddress('Stage')
+    response = getRequest(environment, '/generateSchedule')
+    
+    assert int(response.status_code) == 400
+
 def test_APIPutScheduleInvalid():
 
     environment = getAddress('Stage')
