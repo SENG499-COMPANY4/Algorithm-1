@@ -61,7 +61,7 @@ def test_APIGetScheduleNoAuth():
     environment = getAddress('Stage')
     response = getRequest(environment, '/generateSchedule')
     
-    assert int(response.status_code) == 400
+    assert int(response.status_code) == 401
 
 def test_APIPutScheduleInvalid():
 
