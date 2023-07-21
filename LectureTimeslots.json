@@ -3,87 +3,87 @@
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 830
+            "startTime": "8:30"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 1000
+            "startTime": "10:00"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 1130
+            "startTime": "11:30"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 1300
+            "startTime": "13:00"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 1430
+            "startTime": "14:30"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 1600
+            "startTime": "16:00"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": 1730
+            "startTime": "17:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 830
+            "startTime": "8:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 930
+            "startTime": "9:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1030
+            "startTime": "10:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1130
+            "startTime": "11:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1230
+            "startTime": "12:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1330
+            "startTime": "13:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1430
+            "startTime": "14:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1530
+            "startTime": "15:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1630
+            "startTime": "16:30"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
-            "startTime": 1730
+            "startTime": "17:30"
         }
     ]
 }
