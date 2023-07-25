@@ -139,7 +139,7 @@ def process_room_data(inData):
 #             If isPossible is set to 'True', don't update the exported schedule and
 #             display an appropriate message.
 def export_schedule(timeslots):
-    if check_possibility(timeslots)['Validation'] is False:
+    if check_possibility(timeslots)['valid'] is False:
         print("Schedule is not possible with given constraints, please adjust make adjustments")
     f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4, default=jsonSerial))
@@ -153,7 +153,7 @@ def export_schedule(timeslots):
 def check_possibility(finalSchedule):
 
     outDict = {
-        'Validation' : True
+        'valid' : True
     }
 
     slots = getAllTimeSlots(finalSchedule)

@@ -6,7 +6,7 @@
         },
         "coursename": "PHYS 110",
         "room": "ECS 123",
-        "professor": "Laidlaw, Mark",
+        "professor": "Martin, Travis",
         "type": "Lecture"
     },
     {
@@ -26,7 +26,7 @@
         },
         "coursename": "MATH 100",
         "room": "ECS 128",
-        "professor": "Thompson, Tom",
+        "professor": "Schoeneberg, Torsten",
         "type": "Lecture"
     },
     {
@@ -36,7 +36,7 @@
         },
         "coursename": "MATH 109",
         "room": "ECS 116",
-        "professor": "Zeng, Shangzhi",
+        "professor": "Sodhi, Asmita",
         "type": "Lecture"
     },
     {
@@ -46,7 +46,7 @@
         },
         "coursename": "ENGR 130",
         "room": "ECS 123",
-        "professor": "Stegman, Kelly",
+        "professor": "Spalteholz, Leo",
         "type": "Lecture"
     },
     {
@@ -76,7 +76,7 @@
         },
         "coursename": "MATH 101",
         "room": "ECS 123",
-        "professor": "Oshkai, Svetlana",
+        "professor": "Awais, Muhammad",
         "type": "Lecture"
     },
     {
@@ -106,7 +106,7 @@
         },
         "coursename": "CSC 111",
         "room": "ECS 116",
-        "professor": "Corless, Jason",
+        "professor": "Bird, Bill",
         "type": "Lecture"
     },
     {
