@@ -56,5 +56,9 @@ def editData():
     return getSchedule()
 
 def validateData():
-    data = request.json
+    
+    data = []
+    for i in request.json:
+        data.append(i)
+    
     return str(SchedulingAlgorithm.check_possibility(data))
