@@ -139,7 +139,7 @@ def process_room_data(inData):
 #             If isPossible is set to 'True', don't update the exported schedule and
 #             display an appropriate message.
 def export_schedule(timeslots):
-    if check_possibility(timeslots) is False:
+    if check_possibility(timeslots)['valid'] is False:
         print("Schedule is not possible with given constraints, please adjust make adjustments")
     f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4, default=jsonSerial))
@@ -151,6 +151,11 @@ def export_schedule(timeslots):
 #description: This function checks if it is possible for a schedule to be determined,
 #             given all provided data and any banned or locked placements.
 def check_possibility(finalSchedule):
+
+    outDict = {
+        'valid' : True
+    }
+
     slots = getAllTimeSlots(finalSchedule)
     for slot in slots:
         slotCourses = []
@@ -164,18 +169,21 @@ def check_possibility(finalSchedule):
         profs = list(filter(lambda item: item != '', profs))
         if len(profs) != len(set(profs)):
             print("Schedule is invalid, prof conflict")
-            return False        
+            outDict['Validation'] = False
+            return outDict        
         
         rooms = [i['room'] for i in slotCourses]
         #remove none values
         rooms = list(filter(lambda item: item is not None, rooms))
         if len(rooms) != len(set(rooms)):
             print("Schedule is invalid, room conflict")
-            #return False
-    return True
+            #return outDict
+    return outDict
 
 
 def getAllTimeSlots(finalSchedule):
+    #print(finalSchedule)
+    print(type(finalSchedule))
     slots = [start['starttime'] for start in finalSchedule]
     slotList = []
     for slot in slots:

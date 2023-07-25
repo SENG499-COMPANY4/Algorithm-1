@@ -6,7 +6,7 @@
         },
         "coursename": "PHYS 110",
         "room": "ECS 123",
-        "professor": "Laidlaw, Mark",
+        "professor": "Martin, Travis",
         "type": "Lecture"
     },
     {
@@ -26,7 +26,7 @@
         },
         "coursename": "MATH 100",
         "room": "ECS 128",
-        "professor": "Thompson, Tom",
+        "professor": "Schoeneberg, Torsten",
         "type": "Lecture"
     },
     {
@@ -46,7 +46,7 @@
         },
         "coursename": "ENGR 130",
         "room": "ECS 123",
-        "professor": "Senini, Ash",
+        "professor": "Spalteholz, Leo",
         "type": "Lecture"
     },
     {
@@ -116,7 +116,7 @@
         },
         "coursename": "CSC 115",
         "room": "ECS 116",
-        "professor": "Estey, Anthony",
+        "professor": "Berg, Celina",
         "type": "Lecture"
     },
     {
