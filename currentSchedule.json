@@ -36,7 +36,7 @@
         },
         "coursename": "MATH 109",
         "room": "ECS 116",
-        "professor": "Sodhi, Asmita",
+        "professor": "Zeng, Shangzhi",
         "type": "Lecture"
     },
     {
@@ -46,7 +46,7 @@
         },
         "coursename": "ENGR 130",
         "room": "ECS 123",
-        "professor": "Senini, Ash",
+        "professor": "Stegman, Kelly",
         "type": "Lecture"
     },
     {
@@ -76,7 +76,7 @@
         },
         "coursename": "MATH 101",
         "room": "ECS 123",
-        "professor": "Awais, Muhammad",
+        "professor": "Oshkai, Svetlana",
         "type": "Lecture"
     },
     {
@@ -106,7 +106,7 @@
         },
         "coursename": "CSC 111",
         "room": "ECS 116",
-        "professor": "Bird, Bill",
+        "professor": "Corless, Jason",
         "type": "Lecture"
     },
     {
@@ -116,7 +116,7 @@
         },
         "coursename": "CSC 115",
         "room": "ECS 116",
-        "professor": "Estey, Anthony",
+        "professor": "Berg, Celina",
         "type": "Lecture"
     },
     {
