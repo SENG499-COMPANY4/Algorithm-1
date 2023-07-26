@@ -140,7 +140,9 @@ def process_room_data(inData):
 #             display an appropriate message.
 def export_schedule(timeslots):
     if check_possibility(timeslots)['valid'] is False:
-        print("Schedule is not possible with given constraints, please adjust make adjustments")
+        print("Schedule is not possible with given constraints, please make adjustments")
+    else:
+        print("Schedule is valid")
     f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4, default=jsonSerial))
 
@@ -165,11 +167,12 @@ def check_possibility(finalSchedule):
         print("Time: " + str(slot) + "\nCourse: " + str(slotCourses)) 
         
         profs = [i['professor'] for i in slotCourses]
+        profs = list(filter(lambda item: item is not None, profs))
         #remove none values
         profs = list(filter(lambda item: item != '', profs))
         if len(profs) != len(set(profs)):
             print("Schedule is invalid, prof conflict")
-            outDict['Validation'] = False
+            outDict['valid'] = False
             return outDict        
         
         rooms = [i['room'] for i in slotCourses]
@@ -526,9 +529,11 @@ def schedule_creation(inData):
         
             outData['coursename'] = course.coursename
 
+            outData['professor'] = None
+
             outData['starttime'] = assign_slots(course, None, "Lab")
         
-            outData['room'] = assign_rooms(course, rooms)
+            outData['room'] = None
 
             outData['type'] = "Lab"
         
@@ -544,9 +549,11 @@ def schedule_creation(inData):
         
             outData['coursename'] = course.coursename
 
+            outData['professor'] = None
+
             outData['starttime'] = assign_slots(course, None, "Tutorial")
         
-            outData['room'] = assign_rooms(course, rooms)
+            outData['room'] = None
 
             outData['type'] = "Tutorial"
         
