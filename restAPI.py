@@ -18,9 +18,23 @@ def generateSchedule():
         return saveData()
     elif request.method == 'PUT':
          return editData()
+         
+@app.route("/schedule/create", methods=['GET', 'POST', 'PUT'])
+def comp3Create():
+    if request.method == 'GET':
+        return getSchedule()
+    elif request.method == 'POST':
+        return saveData()
+    elif request.method == 'PUT':
+         return editData()
 
 @app.route("/validate", methods=['POST'])
 def validateSchedule():
+    if request.method == 'POST':
+        return validateData()
+
+@app.route("/schedule/validate", methods=['POST'])
+def comp3ValidateSchedule():
     if request.method == 'POST':
         return validateData()
     
