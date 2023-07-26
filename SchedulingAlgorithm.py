@@ -180,7 +180,8 @@ def check_possibility(finalSchedule):
         rooms = list(filter(lambda item: item is not None, rooms))
         if len(rooms) != len(set(rooms)):
             print("Schedule is invalid, room conflict")
-            #return outDict
+            outDict['valid'] = False
+            return outDict  
     return outDict
 
 
