@@ -1,6 +1,7 @@
 import requests
 import pytest
 import json
+import requests_mock
 
 class BearerAuth(requests.auth.AuthBase):
     def __init__(self, token):
@@ -32,14 +33,24 @@ def getAccessToken():
     bearerToken = r.json()["access_token"]
     return bearerToken
 
-def getRequest(address, route):
+def getRequest(address, route, auth=True):
     
-    r = requests.get(str(address + route), auth= BearerAuth(getAccessToken()))
+    if auth is True:
+        authToken = BearerAuth(getAccessToken())
+    else:
+        authToken = ''
+    
+    r = requests.get(str(address + route), auth= authToken)
     return r
 
-def postRequest(address, route, body):
+def postRequest(address, route, body, auth=True):
+
+    if auth is True:
+        authToken = BearerAuth(getAccessToken())
+    else:
+        authToken = ''
     
-    r = requests.post(str(address + route), auth = BearerAuth(getAccessToken()), json = body)
+    r = requests.post(str(address + route), auth = authToken, json = body)
     return r
 
 def putRequest(address, route, body):
@@ -59,11 +70,42 @@ def test_APIGetScheduleValid():
 
 def test_APIGetScheduleNoAuth():
     environment = getAddress('Stage')
-    response = getRequest(environment, '/generateSchedule')
+    response = getRequest(environment, '/generateSchedule', False)
     
     assert int(response.status_code) == 401
 
 def test_APIPostValid():
+
+
+    environment = getAddress('Stage')
+    response = postRequest(environment, '/generateSchedule', 
+        {
+            "courses": [{
+                "noScheduleOverlap": ["ENGR 110", "ENGR 130", "MATH 100", "MATH 109", "MATH 110", "PHYS 110"],
+                "coursename": "CSC 111",
+                "capacity": 100,
+                "labsNumber": 8,
+                "tutorialsNumber": 0,
+                "lecturesNumber": 1
+            }],
+            "professors": [{
+                "coursePreferences": [],
+                "courses": ["CSC 445", "CSC 545", "CSC 111", "CSC 116", "CSC 497"],
+                "dayPreferences": [],
+                "equipmentPreferences": [],
+                "name": "Bird, Bill",
+                "timePreferences": []
+            }],
+            "rooms": [{
+                "capacity": 100,
+                "equipment": ["2 x Pulldown Screens", "Chalk Board 6ft", "Chalk Board, Sliding, 2 x 6ft + 12ft behind slides", "Desktop Lecture Capture with Webcam", "Digital Classroom (HDMI and VGA connections)", "Document Camera", "PC Computer", "Screen - centre", "Video Data Projector", "iClicker Receiver"],
+                "location": "ECS 104"
+            }]
+        }
+    )
+
+    assert int(response.status_code) == 200
+    '''
     # Mock the successful API response for the valid case
     mock_request_data = {"data": "sample data for POST request"}
     mock_response_data = {"status": "success"}
@@ -78,13 +120,38 @@ def test_APIPostValid():
         m.post(base_address + mock_route, json=mock_response_data, status_code=mock_status_code)
 
         # Now, call the postRequest function without tokens
-        response = postRequest(base_address, mock_route, data=mock_request_data)
+        response = postRequest(base_address, mock_route, mock_request_data)
 
     # Assertions
     assert int(response.status_code) == mock_status_code
     assert response.json() == mock_response_data
+    '''
 
 def test_APIPostInvalid():
+    environment = getAddress('Stage')
+    response = postRequest(environment, '/generateSchedule', 
+        {
+            "courses": [{
+                "noScheduleOverlap": ["ENGR 110", "ENGR 130", "MATH 100", "MATH 109", "MATH 110", "PHYS 110"],
+                "coursename": "CSC 111",
+                "capacity": 100,
+                "labsNumber": 8,
+                "tutorialsNumber": 0,
+                "lecturesNumber": 1
+            }],
+            "professors": [{
+                "coursePreferences": [],
+                "courses": ["CSC 445", "CSC 545", "CSC 111", "CSC 116", "CSC 497"],
+                "dayPreferences": [],
+                "equipmentPreferences": [],
+                "name": "Bird, Bill",
+                "timePreferences": []
+            }]
+        }
+    )
+
+    assert int(response.status_code) == 500
+    '''
     # Mock the API response for the invalid case
     mock_request_data = {"data": "invalid data for POST request"}
     mock_response_data = {"error": "Invalid data"}
@@ -99,13 +166,43 @@ def test_APIPostInvalid():
         m.post(base_address + mock_route, json=mock_response_data, status_code=mock_status_code)
 
         # Now, call the postRequest function without tokens
-        response = postRequest(base_address, mock_route, data=mock_request_data)
+        response = postRequest(base_address, mock_route, mock_request_data)
 
     # Assertions
     assert int(response.status_code) == mock_status_code
     assert response.json() == mock_response_data
+    '''
 
 def test_APIPostNoToken():
+    environment = getAddress('Stage')
+    response = postRequest(environment, '/generateSchedule', 
+        {
+            "courses": [{
+                "noScheduleOverlap": ["ENGR 110", "ENGR 130", "MATH 100", "MATH 109", "MATH 110", "PHYS 110"],
+                "coursename": "CSC 111",
+                "capacity": 100,
+                "labsNumber": 8,
+                "tutorialsNumber": 0,
+                "lecturesNumber": 1
+            }],
+            "professors": [{
+                "coursePreferences": [],
+                "courses": ["CSC 445", "CSC 545", "CSC 111", "CSC 116", "CSC 497"],
+                "dayPreferences": [],
+                "equipmentPreferences": [],
+                "name": "Bird, Bill",
+                "timePreferences": []
+            }],
+            "rooms": [{
+                "capacity": 100,
+                "equipment": ["2 x Pulldown Screens", "Chalk Board 6ft", "Chalk Board, Sliding, 2 x 6ft + 12ft behind slides", "Desktop Lecture Capture with Webcam", "Digital Classroom (HDMI and VGA connections)", "Document Camera", "PC Computer", "Screen - centre", "Video Data Projector", "iClicker Receiver"],
+                "location": "ECS 104"
+            }]
+        }
+    , False)
+
+    assert int(response.status_code) == 401
+    '''
     # Mock the API response when making a POST request without a token
     mock_request_data = {"data": "sample data for POST request"}
     mock_response_data = {"error": "Unauthorized"}
@@ -120,11 +217,12 @@ def test_APIPostNoToken():
         m.post(base_address + mock_route, json=mock_response_data, status_code=mock_status_code)
 
         # Now, call the postRequest function without tokens
-        response = postRequest(base_address, mock_route, data=mock_request_data)
+        response = postRequest(base_address, mock_route, mock_request_data)
 
     # Assertions
     assert int(response.status_code) == mock_status_code
     assert response.json() == mock_response_data
+    '''
 
 def test_APIPutScheduleInvalid():
 
