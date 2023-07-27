@@ -36,6 +36,7 @@ class Course:
     self.tutorialsNumber = tutorialsNumber
     self.capacity = capacity
     self.room = None
+    self.type = None
 
 #class: Prof
 #name: the prof's name
@@ -241,14 +242,25 @@ def prof_priority(prof, courses, index):
 #description: This function assigns indicators of priority rooms for courses, such as
 #             placing CS courses in ECS classrooms.
 def associate_priority_rooms(rooms, courses):
-    rooms.sort(key=lambda x: x.capacity, reverse = True)
+    #Prioritize ECS rooms first
+    rooms.sort(key=lambda x: x.capacity, reverse = False)
+    ecsRooms = [d for d in rooms if d.location[:3] == "ECS"]
+    rooms =[d for d in rooms if d not in ecsRooms]
+    rooms = ecsRooms + rooms
+    
     courses.sort(key=lambda x: x.capacity, reverse = True)
     roomPossibilities = []
     for course in courses:
         possibilities = []
         for room in rooms:
-            if(course.capacity <= room.capacity):
-                possibilities.append(room)
+            if course.type == "Lecture" or course.type is None:
+                if(course.capacity <= room.capacity):
+                    possibilities.append(room)
+                
+            else:
+                if(30 <= room.capacity):
+                    possibilities.append(room)
+                
         roomPossibilities.append((course, possibilities))
     return roomPossibilities
 
@@ -389,8 +401,8 @@ def assign_slots(course, prof, Type):
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
     if Type == "Lecture":
-        #formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
-        formattedTimeslots = globalTimeSlots[Type]
+        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+        #formattedTimeslots = globalTimeSlots[Type]
     elif Type == "Lab" or Type == "Tutorial":
         formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: x.sortkey, reverse=False)
     else:
@@ -398,8 +410,9 @@ def assign_slots(course, prof, Type):
 
     for slot in formattedTimeslots:
         key = list({ele for ele in slot.day if slot.day[ele]})[0]
-        if (((Type == "Lab") and checkTimeslotOverlap(course, key, slot.day[key], Type))
-             or ((Type == "Tutorial") and checkTimeslotOverlap(course, key, slot.day[key], Type))
+        if (((Type == "Lab") and checkTimeslotOverlap(course, key, slot.day[key], slot.length, Type))
+             or ((Type == "Tutorial") and checkTimeslotOverlap(course, key, slot.day[key], slot.length, Type))
+             #or ((Type == "Lecture") and checkTimeslotOverlap(course, key, slot.day[key], slot.length, Type)))\
              or ((Type == "Lecture") and (len([i for i in course.noScheduleOverlap if i in [i[0] for i in slot.courses]]) == 0)))\
         and ((prof is None) or (prof not in slot.profs)):
             
@@ -415,24 +428,29 @@ def assign_slots(course, prof, Type):
         
     return outDay
 
-def checkTimeslotOverlap(course, key, time, Type):
+def checkTimeslotOverlap(course, key, time, length, Type):
 
     #TODO: account for time range
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
 
-    length = 0
-    if Type == "Lab":
-        length = 180
-    elif Type == "Tutorial":
-        length = 60
+    # length = 0
+    # if Type == "Lab":
+    #     length = 170
+    # elif Type == "Tutorial":
+    #     length = 50
 
-    dateList = [d for d in allTimeSlots if ((key in d.day and d.day[key] is not None) and (d.day[key] >= time and d.day[key] < (time + timedelta(minutes=length))))]
+    numLabSlots = 5
+    numTutorialSlots = 5
+    if len(course.noScheduleOverlap) != 0:
+        numLabSlots = 12/len(course.noScheduleOverlap)
+
+    dateList = [d for d in allTimeSlots if ((key in d.day and d.day[key] is not None) and (d.day[key] >= (time - timedelta(minutes=d.length)) and d.day[key] < (time + timedelta(minutes=length))))]
     pass
     overLaps = 0
     for slot in dateList:
-        if (Type == "Lab") and (([i[0] for i in slot.courses if (i[1] == "Lab")].count(course.coursename) >= math.ceil(course.labsNumber/5)) or ([i[0] for i in slot.courses if (i[1] == "Lecture")].count(course.coursename) > 0)):
+        if (Type == "Lab") and (([i[0] for i in slot.courses if (i[1] == "Lab")].count(course.coursename) >= math.ceil(course.labsNumber/numLabSlots)) or ([i[0] for i in slot.courses if (i[1] == "Lecture")].count(course.coursename) > 0)):
             overLaps += 1
-        elif (Type == "Tutorial") and ([i[0] for i in slot.courses if (i[1] == "Tutorial")].count(course.coursename) >= math.ceil(course.tutorialsNumber/5)):
+        elif (Type == "Tutorial") and ([i[0] for i in slot.courses if (i[1] == "Tutorial")].count(course.coursename) >= math.ceil(course.tutorialsNumber/numLabSlots) or ([i[0] for i in slot.courses if (i[1] == "Lecture")].count(course.coursename) > 0)):
             overLaps += 1
         pass
 
@@ -545,7 +563,7 @@ def schedule_creation(inData):
     #Scheduling Tutorials
     for course in courses:
         for i in range(course.tutorialsNumber):
-            print("Scheduling Labs: " + course.coursename)
+            print("Scheduling Tutorials: " + course.coursename)
             outData = create_out_data_dict()
         
             outData['coursename'] = course.coursename
@@ -559,6 +577,34 @@ def schedule_creation(inData):
             outData['type'] = "Tutorial"
         
             outDataList.append(outData)
+    '''
+    assignmentTimeSlots = globalTimeSlots['Tutorial']
+    allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
+    for slot in assignmentTimeSlots:
+        slotDay = list(filter(lambda x: slot.day[x] is not None, slot.day))[0]
+        slotTime = slot.day[slotDay]
+        slotLength = slot.length
+        pass
+        dateList = [d for d in allTimeSlots if ((slotDay in d.day and d.day[slotDay] is not None) and (d.day[slotDay] > (slotTime - timedelta(minutes=(d.length + 10))) and d.day[slotDay] < (slotTime + timedelta(minutes=slotLength))))]
+        
+        roomCourses = []
+        for roomSlot in dateList:
+            for course in roomSlot.courses:
+                for allCourses in courses:
+                    if allCourses.coursename == course[0]:
+                        allCourses.Type = course[1]
+                        roomCourses.append(allCourses)
+            pass
+        pass
+        roomPossibilities = associate_priority_rooms(rooms, roomCourses)
+        assign_rooms_all(roomCourses, roomPossibilities)
+        for course in roomCourses:
+            for k in outDataList:
+                if k['coursename'] == course.coursename:
+                    if k['room'] is None or k['room'] == '':
+                        k['room'] = str(course.room)
+    pass
+    '''
 
     print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4, default=jsonSerial))
     return outDataList
