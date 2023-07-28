@@ -23,17 +23,22 @@
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": "14:30"
+            "startTime": "15:30"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": "16:00"
+            "startTime": "17:00"
         },
         {
             "day": ["Monday", "Thursday"],
             "length": 80,
-            "startTime": "17:30"
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Monday", "Thursday"],
+            "length": 80,
+            "startTime": "20:00"
         },
         {
             "day": ["Tuesday", "Wednesday", "Friday"],
@@ -84,6 +89,91 @@
             "day": ["Tuesday", "Wednesday", "Friday"],
             "length": 50,
             "startTime": "17:30"
+        },
+		{
+            "day": ["Tuesday", "Wednesday", "Friday"],
+            "length": 50,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 170,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 170,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 170,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 170,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 170,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Monday", "Wednesday"],
+            "length": 80,
+            "startTime": "16:30"
         }
     ]
 }
