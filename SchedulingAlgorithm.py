@@ -130,6 +130,32 @@ def check_possibility(finalSchedule):
         'valid' : True
     }
 
+    assignmentTimeSlots = globalTimeSlots['Tutorial']
+    allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
+    for slot in assignmentTimeSlots:
+        slotDay = list(filter(lambda x: slot.day[x] is not None, slot.day))[0]
+        slotTime = slot.day[slotDay]
+        slotLength = slot.length
+        pass
+        dateList = [d for d in finalSchedule if ((slotDay in d['starttime'] and d['starttime'][slotDay] is not None) and (datetime.strptime(d['starttime'][slotDay], "%H:%M") >= (slotTime) and datetime.strptime(d['starttime'][slotDay], "%H:%M") < (slotTime + timedelta(minutes=slotLength))))]
+
+        profs = [i['professor'] for i in dateList]
+        profs = list(filter(lambda item: item is not None, profs))
+        #remove none values
+        profs = list(filter(lambda item: item != '', profs))
+        if len(profs) != len(set(profs)):
+            print("Schedule is invalid, prof conflict")
+            outDict['valid'] = False
+            return outDict        
+        
+        rooms = [i['room'] for i in dateList]
+        #remove none values
+        rooms = list(filter(lambda item: item is not None, rooms))
+        if len(rooms) != len(set(rooms)):
+            print("Schedule is invalid, room conflict")
+            outDict['valid'] = False
+            return outDict  
+    '''
     slots = getAllTimeSlots(finalSchedule)
     for slot in slots:
         slotCourses = []
@@ -154,6 +180,7 @@ def check_possibility(finalSchedule):
             print("Schedule is invalid, room conflict")
             outDict['valid'] = False
             return outDict  
+    '''
     return outDict
 
 #function: getAllTimeSlots
@@ -268,7 +295,7 @@ def assign_rooms_all(courses, roomPossibilities):
                courses = deepcopy(saveCourses)
                continue
          #if no courses have a None room return the output
-         return
+         return 
 
 #function: assign_profs
 #description: This function assigns profs to courses, ensuring requirements are met and
@@ -351,6 +378,7 @@ def assign_slots(course, prof, Type):
   #for course in courses:
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
+    outLength = 50
     if Type == "Lecture":
         formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
         #formattedTimeslots = globalTimeSlots[Type]
@@ -384,7 +412,6 @@ def assign_slots(course, prof, Type):
 #description: This function checks if there is an overlap in timeslots.
 def checkTimeslotOverlap(course, key, time, length, Type):
 
-    #TODO: account for time range
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
 
     # length = 0
@@ -431,6 +458,7 @@ def get_in_data():
 def create_out_data_dict():
     outData = {
         "starttime": "",
+        "length": "",
         #"day": [],
         "coursename": "",
         "room": "",
@@ -537,6 +565,7 @@ def schedule_creation(inData):
             outData['type'] = "Tutorial"
         
             outDataList.append(outData)
+
     '''
     assignmentTimeSlots = globalTimeSlots['Tutorial']
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
@@ -557,12 +586,7 @@ def schedule_creation(inData):
             pass
         pass
         roomPossibilities = associate_priority_rooms(rooms, roomCourses)
-        assign_rooms_all(roomCourses, roomPossibilities)
-        for course in roomCourses:
-            for k in outDataList:
-                if k['coursename'] == course.coursename:
-                    if k['room'] is None or k['room'] == '':
-                        k['room'] = str(course.room)
+        assign_rooms_all(roomCourses, roomPossibilities, outDataList)
     pass
     '''
 
