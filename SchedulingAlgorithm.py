@@ -4,13 +4,9 @@ import random
 import math
 from copy import deepcopy
 from difflib import SequenceMatcher
+
 #TYPES
 
-#class: TimeSlot
-#starttimes: array corresponding to every lecture start in a week
-#endtimes: respective array to starttimes but for end times
-#islocked: bool value where True = locked
-#courses: list of courses assigned to the slot
 class TimeSlot:
   def __init__(self, day, startTimes, length, sortkey=None):
     self.day = day
@@ -21,12 +17,7 @@ class TimeSlot:
     self.profs = []
     self.rooms = []
 
-#class: Course
-#coursename: the name of the course
-#lecturesNumber: 
-#labsNumber: 
-#tutorialsNumber: 
-#capacity: 
+
 class Course:
   def __init__(self, coursename, noScheduleOverlap, lecturesNumber, labsNumber, tutorialsNumber, capacity):
     self.coursename = coursename
@@ -38,12 +29,7 @@ class Course:
     self.room = None
     self.type = None
 
-#class: Prof
-#name: the prof's name
-#courses: 
-#timePreferences: 
-#dayPreferences: 
-#equipmentPreferences: 
+
 class Prof:
   def __init__(self, name, courses, timePreferences, coursePreferences, dayPreferences, equipmentPreferences):
     self.name = name
@@ -54,11 +40,7 @@ class Prof:
     self.dayPreferences = dayPreferences
     self.equipmentPreferences = equipmentPreferences
 
-#class: Room
-#building: building code of room
-#number: room number
-#capacity: max seats
-#hastech: bool for if room is equipped for connecting technology
+
 class Room:
   def __init__(self, location, capacity, hasTech):
     self.location = location
@@ -75,8 +57,6 @@ globalTimeSlots = {'Lecture': [], 'Lab': [], 'Tutorial': []}
 #FUNCTIONS
 
 #function: process_time_slots
-#inputs: a string that holds the path of the time slot data
-#outputs: an array of time slots of type TimeSlot
 #description: This function processes the time slot data and returns it as a custom type
 #             that can be processed by the algorithm.
 def process_time_slots(ScheduleType):
@@ -88,8 +68,6 @@ def process_time_slots(ScheduleType):
     timeslotData = json.loads(f.read())
     
     time_slots = []
-    
-    
 
     for slotData in timeslotData['timeslots']:
         time = datetime.strptime(slotData['startTime'], "%H:%M")
@@ -98,8 +76,6 @@ def process_time_slots(ScheduleType):
     return time_slots
 
 #function: process_prof_data
-#inputs: a string that holds the path of the prof data
-#outputs: an array of type Prof
 #description: This function processes the prof data and returns it as a custom type
 #             that can be processed by the algorithm.
 def process_prof_data(inData):
@@ -111,8 +87,6 @@ def process_prof_data(inData):
     return profs
 
 #function: process_course_data
-#inputs: a string that holds the path of the course data
-#outputs: an array of type Course
 #description: This function processes the course data and returns it as a custom type
 #             that can be processed by the algorithm.
 def process_course_data(inData):
@@ -123,6 +97,9 @@ def process_course_data(inData):
 
     return courses
 
+#function: process_room_data
+#description: This function processes the room data and returns it as a custom type
+#             that can be processed by the algorithm.
 def process_room_data(inData):
     rooms = []
 
@@ -133,9 +110,6 @@ def process_room_data(inData):
 
 
 #function: export_schedule
-#inputs: the array of time slots with their assigned data, a flag to indicate an
-#        impossible request
-#outputs: none
 #description: This function takes the time slot data and exports the schedule as a JSON.
 #             If isPossible is set to 'True', don't update the exported schedule and
 #             display an appropriate message.
@@ -148,9 +122,6 @@ def export_schedule(timeslots):
     f.write(json.dumps(timeslots, indent=4, default=jsonSerial))
 
 #function: check_possibility
-#inputs: arrays of profs, courses, and rooms with all relevant data, an array of disallowed
-#        placements, an array of locked placements
-#outputs: a boolean value indicating if it is possible to generate a schedule
 #description: This function checks if it is possible for a schedule to be determined,
 #             given all provided data and any banned or locked placements.
 def check_possibility(finalSchedule):
@@ -159,6 +130,32 @@ def check_possibility(finalSchedule):
         'valid' : True
     }
 
+    assignmentTimeSlots = globalTimeSlots['Tutorial']
+    allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
+    for slot in assignmentTimeSlots:
+        slotDay = list(filter(lambda x: slot.day[x] is not None, slot.day))[0]
+        slotTime = slot.day[slotDay]
+        slotLength = slot.length
+        pass
+        dateList = [d for d in finalSchedule if ((slotDay in d['starttime'] and d['starttime'][slotDay] is not None) and (datetime.strptime(d['starttime'][slotDay], "%H:%M") >= (slotTime) and datetime.strptime(d['starttime'][slotDay], "%H:%M") < (slotTime + timedelta(minutes=slotLength))))]
+
+        profs = [i['professor'] for i in dateList]
+        profs = list(filter(lambda item: item is not None, profs))
+        #remove none values
+        profs = list(filter(lambda item: item != '', profs))
+        if len(profs) != len(set(profs)):
+            print("Schedule is invalid, prof conflict")
+            outDict['valid'] = False
+            return outDict        
+        
+        rooms = [i['room'] for i in dateList]
+        #remove none values
+        rooms = list(filter(lambda item: item is not None, rooms))
+        if len(rooms) != len(set(rooms)):
+            print("Schedule is invalid, room conflict")
+            outDict['valid'] = False
+            return outDict  
+    '''
     slots = getAllTimeSlots(finalSchedule)
     for slot in slots:
         slotCourses = []
@@ -183,9 +180,11 @@ def check_possibility(finalSchedule):
             print("Schedule is invalid, room conflict")
             outDict['valid'] = False
             return outDict  
+    '''
     return outDict
 
-
+#function: getAllTimeSlots
+#description: This function returns a list of all time slots from a schedule.
 def getAllTimeSlots(finalSchedule):
     #print(finalSchedule)
     print(type(finalSchedule))
@@ -197,8 +196,6 @@ def getAllTimeSlots(finalSchedule):
     return slotList
 
 #function: set_prof_priority
-#inputs: an array of the profs with their associated data
-#outputs: none
 #description: This function uses a weighting algorithm to assign priority scores for profs.
 def set_prof_priority(profs, courses, index):
     # Do priority classes first (Start 4b and work down to 1a)
@@ -212,7 +209,6 @@ def set_prof_priority(profs, courses, index):
         if boolProfPriority:
             validProf.append(prof)
         
-    
     # Limit prof list to only valid profs
     # Tentatively place profs to course
     # If no prof exists the ignore preferences list
@@ -223,24 +219,16 @@ def set_prof_priority(profs, courses, index):
         return set_prof_priority(profs, courses, index)
     else:
         return None
-
+#function: prof_priority
+#description: This function calculates and sets variables to be used in calculating the prof priority.
 def prof_priority(prof, courses, index):
     requirements = [(courses.coursename in prof.courses), (len(prof.assignedCourses) <= 4)]
     reqSize = (len(requirements) - index)
     return all(requirements[:reqSize]), len(requirements[:reqSize])
 
-#function: set_course_priority
-#inputs: an array of the courses with their associated data
-#outputs: none
-#description: This function uses a weighting algorithm to assign priority scores for courses.
-#             These scores will be used when assigning rooms.
-#def set_course_priority(Course[] courses)
 
 #function: associate_priority_rooms
-#inputs: the array of available rooms, the array of courses
-#outputs: list of tuples of courses matched with a list of possible rooms sorted by size
-#description: This function assigns indicators of priority rooms for courses, such as
-#             placing CS courses in ECS classrooms.
+#description: This function associates possible rooms for courses based on a priority order.
 def associate_priority_rooms(rooms, courses):
     #Prioritize ECS rooms first
     rooms.sort(key=lambda x: x.capacity, reverse = False)
@@ -264,10 +252,8 @@ def associate_priority_rooms(rooms, courses):
         roomPossibilities.append((course, possibilities))
     return roomPossibilities
 
-#function: assign_rooms
-#inputs: the array of courses, the respective array of tuples with first element being the
-#        course and second element being the list of possible rooms
-#outputs: none
+
+#function: assign_rooms_all
 #description: This function assigns the courses to their possible rooms based on a priority
 #             by seats needed. If it can't match a course to a room the room attribute will
 #             remain None.
@@ -309,11 +295,9 @@ def assign_rooms_all(courses, roomPossibilities):
                courses = deepcopy(saveCourses)
                continue
          #if no courses have a None room return the output
-         return
+         return 
 
 #function: assign_profs
-#inputs: the array of profs, the array of courses
-#outputs: none
 #description: This function assigns profs to courses, ensuring requirements are met and
 #             that preferences are met in order of their predetermined weighted priority.
 def assign_profs(profs, courses):
@@ -330,10 +314,7 @@ def get_pref_prof(profs, courses):
     return profs[0]
 
 #function: assign_rooms
-#inputs: the array of rooms, the array of courses
-#outputs: none
 #description: This function assigns rooms to courses, ensuring requirements are met.
-
 def assign_rooms(courses, rooms):
     
     room = get_pref_room(rooms, courses)
@@ -341,7 +322,9 @@ def assign_rooms(courses, rooms):
         return room.location
     else: 
         return None
-    
+
+#function: get_pref_room
+#description: This function selects a room to assign for a course.
 def get_pref_room(rooms, courses):
     
     for room in rooms:
@@ -351,9 +334,7 @@ def get_pref_room(rooms, courses):
             print("No valid room")
             return None
 
-#function: lock_course
-#inputs: all input data
-#outputs: the array of locked courses
+#function: lock_courses
 #description: This function manually locks a course in a timeslot.
 def lock_courses(inData):
     lockedPlacements = []
@@ -362,8 +343,6 @@ def lock_courses(inData):
     return lockedPlacements
 
 #function: remove_locked_items
-#inputs: all input data
-#outputs: the same input data without courses that have already been scheduled
 #description: This fuction removes redundant data. In the future, it should be adapted to 
 #             account for any data that the system keeps that is recorded during other
 #             functions, like how many classes a professor is currently listed to teach.
@@ -374,12 +353,8 @@ def remove_locked_items(inData):
                 inData['courses'].remove(course)
     return inData
 
-#function: assign_slots
-#inputs: the array of timeslots, the array of locked placements, the array of courses with
-#        all their relevant data
-#outputs: none
-#description: This function uses an algorithm to assign courses to timeslots based on a
-#             weighted priority.
+#function: create_timeslots
+#description: This function creates the global variable of all timeslots.
 def create_timeslots(timeslots, Type):
     print(Type)
     for slots in timeslots:
@@ -394,12 +369,16 @@ def create_timeslots(timeslots, Type):
     for i in range(len(globalTimeSlots[Type])):
         print(globalTimeSlots[Type][i].startTimes)
 
+#function: assign_slots
+#description: This function uses an algorithm to assign courses to timeslots based on a
+#             weighted priority.
 def assign_slots(course, prof, Type):
   #for now just assigning at random and ignoring locked courses
   #this assumes by the time this function is called the courses will have all required data in their data type
   #for course in courses:
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
+    outLength = 50
     if Type == "Lecture":
         formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
         #formattedTimeslots = globalTimeSlots[Type]
@@ -428,9 +407,11 @@ def assign_slots(course, prof, Type):
         
     return outDay
 
+
+#function: checkTimeslotOverlap
+#description: This function checks if there is an overlap in timeslots.
 def checkTimeslotOverlap(course, key, time, length, Type):
 
-    #TODO: account for time range
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
 
     # length = 0
@@ -463,16 +444,21 @@ def checkTimeslotOverlap(course, key, time, length, Type):
 
 
         
-
+#function: get_in_data
+#description: This function takes in the input data.
 def get_in_data():
     f = open("recentData.json", "r")
     inDataJson = f.read()
     inData = json.loads(inDataJson)
     return inData
-    
+
+
+#function: create_out_data_dict
+#description: This function creates the output dictionary.
 def create_out_data_dict():
     outData = {
         "starttime": "",
+        "length": "",
         #"day": [],
         "coursename": "",
         "room": "",
@@ -482,6 +468,8 @@ def create_out_data_dict():
     
     return outData
 
+#function: schedule_creation
+#description: This is the main function for creating the schedule.
 def schedule_creation(inData):
     
     outDataList = []
@@ -577,6 +565,7 @@ def schedule_creation(inData):
             outData['type'] = "Tutorial"
         
             outDataList.append(outData)
+
     '''
     assignmentTimeSlots = globalTimeSlots['Tutorial']
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
@@ -597,18 +586,15 @@ def schedule_creation(inData):
             pass
         pass
         roomPossibilities = associate_priority_rooms(rooms, roomCourses)
-        assign_rooms_all(roomCourses, roomPossibilities)
-        for course in roomCourses:
-            for k in outDataList:
-                if k['coursename'] == course.coursename:
-                    if k['room'] is None or k['room'] == '':
-                        k['room'] = str(course.room)
+        assign_rooms_all(roomCourses, roomPossibilities, outDataList)
     pass
     '''
 
     print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4, default=jsonSerial))
     return outDataList
 
+#function: jsonSerial
+#description: This function is used for datetime string processing.
 def jsonSerial(obj):
     if isinstance(obj, (datetime, date)):
         time = str(obj.hour) + ":" + str(obj.minute)
