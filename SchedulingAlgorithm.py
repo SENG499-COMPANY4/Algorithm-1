@@ -458,7 +458,6 @@ def get_in_data():
 def create_out_data_dict():
     outData = {
         "starttime": "",
-        "length": "",
         #"day": [],
         "coursename": "",
         "room": "",
@@ -507,6 +506,7 @@ def schedule_creation(inData):
 
 
     slots = getAllTimeSlots(outDataList)
+
     for slot in slots:
         slotCourses = []
         roomCourses = []
@@ -526,8 +526,50 @@ def schedule_creation(inData):
                 if k['coursename'] == course.coursename:
                     k['room'] = str(course.room)
 
+    #Special Case Monday Thursday Afternoons
+    extraSlots = [x for x in slots if datetime.strptime(x[list(x.keys())[0]], "%H:%M") >= datetime.strptime("13:30", "%H:%M") and ("Monday" in list(x.keys()) or "Thursday" in list(x.keys()))]
+    pass
+
+    slotCourses = []
+    roomCourses = []
+    for course in outDataList:
+        if course['starttime'] in extraSlots:
+            slotCourses.append(course)
+    for course in slotCourses:
+        for allCourses in courses:
+            if allCourses.coursename == course['coursename']:
+                roomCourses.append(allCourses)
+
+    #Special Case Tuesday Wednesday Friday Afternoons
+    roomPossibilities = associate_priority_rooms(rooms, roomCourses)
+    assign_rooms_all(roomCourses, roomPossibilities)
+    for course in roomCourses:
+        for k in outDataList:
+            if k['coursename'] == course.coursename:
+                k['room'] = str(course.room)
+
+    extraSlots = [x for x in slots if datetime.strptime(x[list(x.keys())[0]], "%H:%M") >= datetime.strptime("13:30", "%H:%M") and ("Tuesday" in list(x.keys()) or "Wednesday" in list(x.keys()) or "Friday" in list(x.keys()))]
+    pass
+
+    slotCourses = []
+    roomCourses = []
+    for course in outDataList:
+        if course['starttime'] in extraSlots:
+            slotCourses.append(course)
+    for course in slotCourses:
+        for allCourses in courses:
+            if allCourses.coursename == course['coursename']:
+                roomCourses.append(allCourses)
 
 
+    roomPossibilities = associate_priority_rooms(rooms, roomCourses)
+    assign_rooms_all(roomCourses, roomPossibilities)
+    for course in roomCourses:
+        for k in outDataList:
+            if k['coursename'] == course.coursename:
+                k['room'] = str(course.room)
+
+    pass
     #Scheduling Labs
     for course in courses:
         for i in range(course.labsNumber):
