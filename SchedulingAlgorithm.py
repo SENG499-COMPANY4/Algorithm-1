@@ -372,20 +372,14 @@ def create_timeslots(timeslots, Type):
 #function: assign_slots
 #description: This function uses an algorithm to assign courses to timeslots based on a
 #             weighted priority.
-def assign_slots(course, prof, Type):
+def assign_slots(course, prof, Type, formattedTimeslots):
   #for now just assigning at random and ignoring locked courses
   #this assumes by the time this function is called the courses will have all required data in their data type
   #for course in courses:
     #slot = random.randint(0,len(globalTimeSlots)-1)
     outDay = {}
     outLength = 50
-    if Type == "Lecture":
-        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
-        #formattedTimeslots = globalTimeSlots[Type]
-    elif Type == "Lab" or Type == "Tutorial":
-        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: x.sortkey, reverse=False)
-    else:
-        formattedTimeslots = globalTimeSlots[Type]
+    
 
     for slot in formattedTimeslots:
         key = list({ele for ele in slot.day if slot.day[ele]})[0]
@@ -487,6 +481,7 @@ def schedule_creation(inData):
 
     #print(json.dumps(inData, indent=4))
     #Scheduling Lectures
+    Type = "Lecture"
     for course in courses:
         print("Scheduling: " + course.coursename)
         outData = create_out_data_dict()
@@ -494,8 +489,16 @@ def schedule_creation(inData):
         outData['coursename'] = course.coursename
         
         outData['professor'] = assign_profs(profs, course)
+
+        if Type == "Lecture":
+            formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+            #formattedTimeslots = globalTimeSlots[Type]
+        elif Type == "Lab" or Type == "Tutorial":
+            formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: (len(set(x.courses)), x.sortkey), reverse=False)
+        else:
+            formattedTimeslots = globalTimeSlots[Type]
         
-        outData['starttime'] = assign_slots(course, outData['professor'], "Lecture")
+        outData['starttime'] = assign_slots(course, outData['professor'], "Lecture", formattedTimeslots)
         
         
         
@@ -571,7 +574,17 @@ def schedule_creation(inData):
 
     pass
     #Scheduling Labs
+    Type = "Lab"
     for course in courses:
+
+        if Type == "Lecture":
+            formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+            #formattedTimeslots = globalTimeSlots[Type]
+        elif Type == "Lab" or Type == "Tutorial":
+            formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: (len(set(x.courses)), x.sortkey), reverse=False)
+        else:
+            formattedTimeslots = globalTimeSlots[Type]
+
         for i in range(course.labsNumber):
             print("Scheduling Labs: " + course.coursename)
             outData = create_out_data_dict()
@@ -580,7 +593,9 @@ def schedule_creation(inData):
 
             outData['professor'] = None
 
-            outData['starttime'] = assign_slots(course, None, "Lab")
+            
+
+            outData['starttime'] = assign_slots(course, None, "Lab", formattedTimeslots)
         
             outData['room'] = None
 
@@ -591,7 +606,17 @@ def schedule_creation(inData):
 
     
     #Scheduling Tutorials
+    Type = "Tutorial"
     for course in courses:
+
+        if Type == "Lecture":
+            formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
+            #formattedTimeslots = globalTimeSlots[Type]
+        elif Type == "Lab" or Type == "Tutorial":
+            formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: (len(set(x.courses)), x.sortkey), reverse=False)
+        else:
+            formattedTimeslots = globalTimeSlots[Type]
+
         for i in range(course.tutorialsNumber):
             print("Scheduling Tutorials: " + course.coursename)
             outData = create_out_data_dict()
@@ -600,7 +625,7 @@ def schedule_creation(inData):
 
             outData['professor'] = None
 
-            outData['starttime'] = assign_slots(course, None, "Tutorial")
+            outData['starttime'] = assign_slots(course, None, "Tutorial", formattedTimeslots)
         
             outData['room'] = None
 
