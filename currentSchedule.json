@@ -7,7 +7,7 @@
         "length": "",
         "coursename": "MATH 110",
         "room": "ECS 123",
-        "professor": "Steed, Brendan",
+        "professor": "Eagle, Christopher",
         "type": "Lecture"
     },
     {
@@ -29,7 +29,7 @@
         "length": "",
         "coursename": "MATH 100",
         "room": "ECS 123",
-        "professor": "Bose, Christopher",
+        "professor": "Budney, Ryan",
         "type": "Lecture"
     },
     {
@@ -61,7 +61,7 @@
         },
         "length": "",
         "coursename": "ECE 255",
-        "room": "ECS 125",
+        "room": "ELL 167",
         "professor": "Li, Kin Fun",
         "type": "Lecture"
     },
@@ -83,8 +83,8 @@
         },
         "length": "",
         "coursename": "CSC 230",
-        "room": "ECS 123",
-        "professor": "Zastre, Michael",
+        "room": "ELL 168",
+        "professor": "Abdullah, Ahmad",
         "type": "Lecture"
     },
     {
@@ -108,7 +108,7 @@
         "length": "",
         "coursename": "MATH 122",
         "room": "ECS 116",
-        "professor": "MacGillivray, Gary",
+        "professor": "Horan, Joseph",
         "type": "Lecture"
     },
     {
@@ -180,7 +180,7 @@
         "length": "",
         "coursename": "CSC 370",
         "room": "ECS 130",
-        "professor": "Thomo, Alex",
+        "professor": "Chester, Sean",
         "type": "Lecture"
     },
     {
@@ -191,8 +191,8 @@
         },
         "length": "",
         "coursename": "CSC 360",
-        "room": "ECS 130",
-        "professor": "Wu, Kui",
+        "room": "ECS 108",
+        "professor": "Zastre, Michael",
         "type": "Lecture"
     },
     {
@@ -215,7 +215,7 @@
         },
         "length": "",
         "coursename": "CSC 111",
-        "room": "ECS 130",
+        "room": "ECS 116",
         "professor": "Corless, Jason",
         "type": "Lecture"
     },
@@ -226,7 +226,7 @@
         "length": "",
         "coursename": "PHYS 110",
         "room": "ECS 116",
-        "professor": "Laidlaw, Mark",
+        "professor": "Martin, Travis",
         "type": "Lecture"
     },
     {
@@ -236,7 +236,7 @@
         "length": "",
         "coursename": "STAT 260",
         "room": "ECS 125",
-        "professor": "Olobatuyi, Kehinde",
+        "professor": "Teshima, Laura",
         "type": "Lecture"
     },
     {
