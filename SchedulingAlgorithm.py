@@ -383,7 +383,7 @@ def assign_slots(course, prof, Type):
         formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: len(x.courses), reverse=False)
         #formattedTimeslots = globalTimeSlots[Type]
     elif Type == "Lab" or Type == "Tutorial":
-        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: x.sortkey, reverse=False)
+        formattedTimeslots = sorted(globalTimeSlots[Type], key = lambda x: (x.sortkey, len(x.courses)), reverse=False)
     else:
         formattedTimeslots = globalTimeSlots[Type]
 
