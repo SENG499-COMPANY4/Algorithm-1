@@ -74,6 +74,7 @@ def process_time_slots(ScheduleType):
 
     return time_slots
 
+
 #function: process_prof_data
 #description: This function processes the prof data and returns it as a custom type
 #             that can be processed by the algorithm.
@@ -85,6 +86,7 @@ def process_prof_data(inData):
 
     return profs
 
+
 #function: process_course_data
 #description: This function processes the course data and returns it as a custom type
 #             that can be processed by the algorithm.
@@ -95,6 +97,7 @@ def process_course_data(inData):
         courses.append(Course(courseData['coursename'], courseData['noScheduleOverlap'], courseData['lecturesNumber'], courseData['labsNumber'], courseData['tutorialsNumber'], courseData['capacity']))
 
     return courses
+
 
 #function: process_room_data
 #description: This function processes the room data and returns it as a custom type
@@ -119,6 +122,7 @@ def export_schedule(timeslots):
         print("Schedule is valid")
     f = open("currentSchedule.json", "w")
     f.write(json.dumps(timeslots, indent=4, default=jsonSerial))
+
 
 #function: check_possibility
 #description: This function checks if it is possible for a schedule to be determined,
@@ -158,20 +162,20 @@ def check_possibility(finalSchedule):
             print("Schedule is invalid, room conflict")
             outDict['valid'] = False
             return outDict   
-    
+
     return outDict
+
 
 #function: getAllTimeSlots
 #description: This function returns a list of all time slots from a schedule.
 def getAllTimeSlots(finalSchedule):
-    #print(finalSchedule)
-    print(type(finalSchedule))
     slots = [start['starttime'] for start in finalSchedule]
     slotList = []
     for slot in slots:
         if slot not in slotList:
             slotList.append(slot)
     return slotList
+
 
 #function: set_prof_priority
 #description: This function uses a weighting algorithm to assign priority scores for profs.
@@ -197,6 +201,8 @@ def set_prof_priority(profs, courses, index):
         return set_prof_priority(profs, courses, index)
     else:
         return None
+
+
 #function: prof_priority
 #description: This function calculates and sets variables to be used in calculating the prof priority.
 def prof_priority(prof, courses, index):
@@ -275,6 +281,7 @@ def assign_rooms_all(courses, roomPossibilities):
          #if no courses have a None room return the output
          return 
 
+
 #function: assign_profs
 #description: This function assigns profs to courses, ensuring requirements are met and
 #             that preferences are met in order of their predetermined weighted priority.
@@ -291,6 +298,7 @@ def assign_profs(profs, courses):
 def get_pref_prof(profs, courses):
     return profs[0]
 
+
 #function: assign_rooms
 #description: This function assigns rooms to courses, ensuring requirements are met.
 def assign_rooms(courses, rooms):
@@ -300,6 +308,7 @@ def assign_rooms(courses, rooms):
         return room.location
     else: 
         return None
+
 
 #function: get_pref_room
 #description: This function selects a room to assign for a course.
@@ -312,6 +321,7 @@ def get_pref_room(rooms, courses):
             print("No valid room")
             return None
 
+
 #function: lock_courses
 #description: This function manually locks a course in a timeslot.
 def lock_courses(inData):
@@ -319,6 +329,7 @@ def lock_courses(inData):
     for schedule in inData['lockedSchedule']:
         lockedPlacements.append(schedule)
     return lockedPlacements
+
 
 #function: remove_locked_items
 #description: This fuction removes redundant data. In the future, it should be adapted to 
@@ -330,6 +341,7 @@ def remove_locked_items(inData):
             if course['coursename'] == schedule['coursename']:
                 inData['courses'].remove(course)
     return inData
+
 
 #function: create_timeslots
 #description: This function creates the global variable of all timeslots.
@@ -346,6 +358,7 @@ def create_timeslots(timeslots, Type):
     
     for i in range(len(globalTimeSlots[Type])):
         print(globalTimeSlots[Type][i].startTimes)
+
 
 #function: assign_slots
 #description: This function uses an algorithm to assign courses to timeslots based on a
@@ -386,12 +399,6 @@ def checkTimeslotOverlap(course, key, time, length, Type):
 
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
 
-    # length = 0
-    # if Type == "Lab":
-    #     length = 170
-    # elif Type == "Tutorial":
-    #     length = 50
-
     numLabSlots = 5
     numTutorialSlots = 5
     if len(course.noScheduleOverlap) != 0:
@@ -413,7 +420,6 @@ def checkTimeslotOverlap(course, key, time, length, Type):
         return True
     else:
         return False
-
 
         
 #function: get_in_data
@@ -611,32 +617,9 @@ def schedule_creation(inData):
         
             outDataList.append(outData)
 
-    '''
-    assignmentTimeSlots = globalTimeSlots['Tutorial']
-    allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
-    for slot in assignmentTimeSlots:
-        slotDay = list(filter(lambda x: slot.day[x] is not None, slot.day))[0]
-        slotTime = slot.day[slotDay]
-        slotLength = slot.length
-        pass
-        dateList = [d for d in allTimeSlots if ((slotDay in d.day and d.day[slotDay] is not None) and (d.day[slotDay] > (slotTime - timedelta(minutes=(d.length + 10))) and d.day[slotDay] < (slotTime + timedelta(minutes=slotLength))))]
-        
-        roomCourses = []
-        for roomSlot in dateList:
-            for course in roomSlot.courses:
-                for allCourses in courses:
-                    if allCourses.coursename == course[0]:
-                        allCourses.Type = course[1]
-                        roomCourses.append(allCourses)
-            pass
-        pass
-        roomPossibilities = associate_priority_rooms(rooms, roomCourses)
-        assign_rooms_all(roomCourses, roomPossibilities, outDataList)
-    pass
-    '''
-
     print("\nGenerated Schedule:\n" + json.dumps(outDataList, indent=4, default=jsonSerial))
     return outDataList
+
 
 #function: jsonSerial
 #description: This function is used for datetime string processing.
@@ -645,7 +628,6 @@ def jsonSerial(obj):
         time = str(obj.hour) + ":" + str(obj.minute)
         return time
     raise TypeError ("Type %s is not serializable" % type(obj))
-
 
 
 def main():
