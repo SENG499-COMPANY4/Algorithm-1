@@ -4,9 +4,9 @@
             "Monday": "8:30",
             "Thursday": "8:30"
         },
-        "coursename": "CSC 226",
-        "room": "ECS 130",
-        "professor": "Mehta, Nishant",
+        "coursename": "MATH 110",
+        "room": "ECS 123",
+        "professor": "Eagle, Christopher",
         "type": "Lecture"
     },
     {
@@ -14,9 +14,9 @@
             "Monday": "10:0",
             "Thursday": "10:0"
         },
-        "coursename": "STAT 260",
-        "room": "ECS 125",
-        "professor": "Teshima, Laura",
+        "coursename": "MATH 109",
+        "room": "ECS 123",
+        "professor": "Sodhi, Asmita",
         "type": "Lecture"
     },
     {
@@ -24,9 +24,9 @@
             "Monday": "11:30",
             "Thursday": "11:30"
         },
-        "coursename": "CHEM 101",
-        "room": "ECS 125",
-        "professor": "de Souza, Michele",
+        "coursename": "MATH 100",
+        "room": "ECS 123",
+        "professor": "Budney, Ryan",
         "type": "Lecture"
     },
     {
@@ -34,9 +34,9 @@
             "Monday": "13:0",
             "Thursday": "13:0"
         },
-        "coursename": "CSC 115",
-        "room": "ECS 124",
-        "professor": "Estey, Anthony",
+        "coursename": "ENGR 130",
+        "room": "ECS 123",
+        "professor": "Senini, Ash",
         "type": "Lecture"
     },
     {
@@ -44,9 +44,9 @@
             "Monday": "15:30",
             "Thursday": "15:30"
         },
-        "coursename": "CSC 225",
-        "room": "ECS 108",
-        "professor": "Little, Rich",
+        "coursename": "ENGR 110",
+        "room": "ECS 130",
+        "professor": "Firmani, Flavio",
         "type": "Lecture"
     },
     {
@@ -54,9 +54,9 @@
             "Monday": "17:0",
             "Thursday": "17:0"
         },
-        "coursename": "CSC 230",
-        "room": "ECS 128",
-        "professor": "Zastre, Michael",
+        "coursename": "ECE 255",
+        "room": "ELL 167",
+        "professor": "Li, Kin Fun",
         "type": "Lecture"
     },
     {
@@ -64,9 +64,9 @@
             "Monday": "18:30",
             "Thursday": "18:30"
         },
-        "coursename": "CSC 320",
-        "room": "ECS 104",
-        "professor": "King, Valerie",
+        "coursename": "ECE 355",
+        "room": "ECS 123",
+        "professor": "Capson, David",
         "type": "Lecture"
     },
     {
@@ -74,8 +74,8 @@
             "Monday": "20:0",
             "Thursday": "20:0"
         },
-        "coursename": "CSC 360",
-        "room": "ECS 130",
+        "coursename": "CSC 230",
+        "room": "ELL 168",
         "professor": "Abdullah, Ahmad",
         "type": "Lecture"
     },
@@ -85,9 +85,9 @@
             "Wednesday": "8:30",
             "Friday": "8:30"
         },
-        "coursename": "CSC 370",
-        "room": "ECS 130",
-        "professor": "Chester, Sean",
+        "coursename": "SENG 265",
+        "room": "ECS 124",
+        "professor": "Muller, Hausi",
         "type": "Lecture"
     },
     {
@@ -96,9 +96,9 @@
             "Wednesday": "9:30",
             "Friday": "9:30"
         },
-        "coursename": "ECE 260",
-        "room": "ECS 128",
-        "professor": "Adams, Michael",
+        "coursename": "MATH 122",
+        "room": "ECS 116",
+        "professor": "Schulz, Tyler",
         "type": "Lecture"
     },
     {
@@ -107,9 +107,9 @@
             "Wednesday": "10:30",
             "Friday": "10:30"
         },
-        "coursename": "ECON 180",
-        "room": "ECS 123",
-        "professor": "Willmore, Christopher",
+        "coursename": "ECE 260",
+        "room": "ECS 128",
+        "professor": "Adams, Michael",
         "type": "Lecture"
     },
     {
@@ -118,9 +118,9 @@
             "Wednesday": "11:30",
             "Friday": "11:30"
         },
-        "coursename": "MATH 101",
-        "room": "ECS 128",
-        "professor": "Thompson, Tom",
+        "coursename": "CHEM 101",
+        "room": "ECS 123",
+        "professor": "Boice, Genevieve",
         "type": "Lecture"
     },
     {
@@ -129,9 +129,9 @@
             "Wednesday": "12:30",
             "Friday": "12:30"
         },
-        "coursename": "MATH 109",
-        "room": "ECS 124",
-        "professor": "Awais, Muhammad",
+        "coursename": "CSC 355",
+        "room": "ECS 128",
+        "professor": "Jackson, LillAnne",
         "type": "Lecture"
     },
     {
@@ -140,9 +140,9 @@
             "Wednesday": "13:30",
             "Friday": "13:30"
         },
-        "coursename": "MATH 122",
-        "room": "ECS 116",
-        "professor": "Manzer, Josh",
+        "coursename": "SENG 360",
+        "room": "ECS 104",
+        "professor": "Weber, Jens",
         "type": "Lecture"
     },
     {
@@ -151,9 +151,9 @@
             "Wednesday": "14:30",
             "Friday": "14:30"
         },
-        "coursename": "SENG 265",
-        "room": "ECS 128",
-        "professor": "Zastre, Michael",
+        "coursename": "SENG 350",
+        "room": "ECS 124",
+        "professor": "Weber, Jens",
         "type": "Lecture"
     },
     {
@@ -162,16 +162,67 @@
             "Wednesday": "15:30",
             "Friday": "15:30"
         },
-        "coursename": "SENG 310",
-        "room": "ECS 104",
-        "professor": "Somanath, Sowmya",
+        "coursename": "CSC 370",
+        "room": "ECS 130",
+        "professor": "Thomo, Alex",
+        "type": "Lecture"
+    },
+    {
+        "starttime": {
+            "Tuesday": "16:30",
+            "Wednesday": "16:30",
+            "Friday": "16:30"
+        },
+        "coursename": "CSC 360",
+        "room": "ECS 108",
+        "professor": "Wu, Kui",
+        "type": "Lecture"
+    },
+    {
+        "starttime": {
+            "Tuesday": "17:30",
+            "Wednesday": "17:30",
+            "Friday": "17:30"
+        },
+        "coursename": "CSC 320",
+        "room": "ECS 128",
+        "professor": "King, Valerie",
+        "type": "Lecture"
+    },
+    {
+        "starttime": {
+            "Tuesday": "18:30",
+            "Wednesday": "18:30",
+            "Friday": "18:30"
+        },
+        "coursename": "CSC 111",
+        "room": "ECS 116",
+        "professor": "Bird, Bill",
+        "type": "Lecture"
+    },
+    {
+        "starttime": {
+            "Monday": "13:30"
+        },
+        "coursename": "PHYS 110",
+        "room": "ECS 116",
+        "professor": "Laidlaw, Mark",
+        "type": "Lecture"
+    },
+    {
+        "starttime": {
+            "Monday": "15:30"
+        },
+        "coursename": "STAT 260",
+        "room": "ECS 125",
+        "professor": "Olobatuyi, Kehinde",
         "type": "Lecture"
     },
     {
         "starttime": {
             "Tuesday": "8:30"
         },
-        "coursename": "CSC 226",
+        "coursename": "ENGR 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -180,7 +231,7 @@
         "starttime": {
             "Tuesday": "8:30"
         },
-        "coursename": "CSC 226",
+        "coursename": "ENGR 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -189,7 +240,43 @@
         "starttime": {
             "Tuesday": "8:30"
         },
-        "coursename": "CSC 226",
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "8:30"
+        },
+        "coursename": "ENGR 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -198,7 +285,7 @@
         "starttime": {
             "Wednesday": "8:30"
         },
-        "coursename": "CSC 226",
+        "coursename": "ENGR 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -207,7 +294,52 @@
         "starttime": {
             "Wednesday": "8:30"
         },
-        "coursename": "CSC 226",
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "ENGR 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "ENGR 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -216,7 +348,25 @@
         "starttime": {
             "Monday": "8:30"
         },
-        "coursename": "CHEM 101",
+        "coursename": "ECE 255",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "8:30"
+        },
+        "coursename": "ECE 255",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "8:30"
+        },
+        "coursename": "ECE 255",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -225,7 +375,25 @@
         "starttime": {
             "Thursday": "8:30"
         },
-        "coursename": "CHEM 101",
+        "coursename": "ECE 255",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "8:30"
+        },
+        "coursename": "ECE 255",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "8:30"
+        },
+        "coursename": "ECE 255",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -234,79 +402,25 @@
         "starttime": {
             "Friday": "8:30"
         },
-        "coursename": "CHEM 101",
+        "coursename": "ECE 355",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Tuesday": "11:30"
+            "Friday": "8:30"
         },
-        "coursename": "CSC 115",
+        "coursename": "ECE 355",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Tuesday": "11:30"
+            "Friday": "8:30"
         },
-        "coursename": "CSC 115",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Wednesday": "11:30"
-        },
-        "coursename": "CSC 115",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Wednesday": "11:30"
-        },
-        "coursename": "CSC 115",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Friday": "11:30"
-        },
-        "coursename": "CSC 115",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Friday": "11:30"
-        },
-        "coursename": "CSC 115",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Monday": "14:30"
-        },
-        "coursename": "CSC 115",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Monday": "14:30"
-        },
-        "coursename": "CSC 115",
+        "coursename": "ECE 355",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -315,7 +429,25 @@
         "starttime": {
             "Monday": "11:30"
         },
-        "coursename": "CSC 225",
+        "coursename": "ECE 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "11:30"
+        },
+        "coursename": "ECE 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "11:30"
+        },
+        "coursename": "ECE 355",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -324,7 +456,43 @@
         "starttime": {
             "Thursday": "11:30"
         },
-        "coursename": "CSC 225",
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "11:30"
+        },
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "11:30"
+        },
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "11:30"
+        },
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "11:30"
+        },
+        "coursename": "CSC 230",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -333,7 +501,34 @@
         "starttime": {
             "Tuesday": "14:30"
         },
-        "coursename": "CSC 225",
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "CSC 230",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "CSC 230",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -342,7 +537,34 @@
         "starttime": {
             "Wednesday": "14:30"
         },
-        "coursename": "CSC 225",
+        "coursename": "SENG 265",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "SENG 265",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "SENG 265",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "SENG 265",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -351,7 +573,25 @@
         "starttime": {
             "Friday": "14:30"
         },
-        "coursename": "CSC 225",
+        "coursename": "SENG 265",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "14:30"
+        },
+        "coursename": "SENG 265",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "14:30"
+        },
+        "coursename": "SENG 265",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -360,7 +600,7 @@
         "starttime": {
             "Tuesday": "17:30"
         },
-        "coursename": "CSC 230",
+        "coursename": "CHEM 101",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -369,7 +609,34 @@
         "starttime": {
             "Tuesday": "17:30"
         },
-        "coursename": "CSC 230",
+        "coursename": "CHEM 101",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "17:30"
+        },
+        "coursename": "CHEM 101",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "17:30"
+        },
+        "coursename": "CHEM 101",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "17:30"
+        },
+        "coursename": "CHEM 101",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -378,7 +645,7 @@
         "starttime": {
             "Wednesday": "17:30"
         },
-        "coursename": "CSC 230",
+        "coursename": "CHEM 101",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -387,25 +654,70 @@
         "starttime": {
             "Wednesday": "17:30"
         },
-        "coursename": "CSC 230",
+        "coursename": "CHEM 101",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Friday": "17:30"
+            "Wednesday": "17:30"
         },
-        "coursename": "CSC 230",
+        "coursename": "CHEM 101",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Friday": "17:30"
+            "Wednesday": "17:30"
         },
-        "coursename": "CSC 230",
+        "coursename": "CHEM 101",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "14:30"
+        },
+        "coursename": "CSC 355",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -414,7 +726,439 @@
         "starttime": {
             "Thursday": "14:30"
         },
-        "coursename": "SENG 265",
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "CSC 355",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "8:30"
+        },
+        "coursename": "SENG 360",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "8:30"
+        },
+        "coursename": "SENG 360",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "8:30"
+        },
+        "coursename": "SENG 360",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "8:30"
+        },
+        "coursename": "SENG 360",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "8:30"
+        },
+        "coursename": "SENG 360",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "SENG 350",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "8:30"
+        },
+        "coursename": "SENG 350",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Thursday": "8:30"
+        },
+        "coursename": "SENG 350",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 111",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -423,52 +1167,61 @@
         "starttime": {
             "Monday": "17:30"
         },
-        "coursename": "SENG 265",
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Thursday": "17:30"
+            "Monday": "17:30"
         },
-        "coursename": "SENG 265",
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Monday": "8:30"
+            "Monday": "17:30"
         },
-        "coursename": "SENG 265",
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Tuesday": "8:30"
+            "Monday": "17:30"
         },
-        "coursename": "SENG 310",
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Wednesday": "8:30"
+            "Monday": "17:30"
         },
-        "coursename": "SENG 310",
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
     },
     {
         "starttime": {
-            "Thursday": "8:30"
+            "Monday": "17:30"
         },
-        "coursename": "SENG 310",
+        "coursename": "PHYS 110",
+        "room": null,
+        "professor": null,
+        "type": "Lab"
+    },
+    {
+        "starttime": {
+            "Monday": "17:30"
+        },
+        "coursename": "PHYS 110",
         "room": null,
         "professor": null,
         "type": "Lab"
@@ -477,43 +1230,7 @@
         "starttime": {
             "Friday": "8:30"
         },
-        "coursename": "SENG 310",
-        "room": null,
-        "professor": null,
-        "type": "Lab"
-    },
-    {
-        "starttime": {
-            "Monday": "8:30"
-        },
-        "coursename": "CSC 320",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Tuesday": "8:30"
-        },
-        "coursename": "CSC 320",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Wednesday": "8:30"
-        },
-        "coursename": "CSC 320",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Thursday": "8:30"
-        },
-        "coursename": "CSC 360",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
@@ -522,88 +1239,34 @@
         "starttime": {
             "Friday": "8:30"
         },
-        "coursename": "CSC 360",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
     },
     {
         "starttime": {
-            "Monday": "9:30"
+            "Friday": "8:30"
         },
-        "coursename": "CSC 360",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
     },
     {
         "starttime": {
-            "Thursday": "9:30"
+            "Friday": "8:30"
         },
-        "coursename": "ECE 260",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
     },
     {
         "starttime": {
-            "Monday": "10:30"
+            "Friday": "8:30"
         },
-        "coursename": "ECE 260",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Tuesday": "10:30"
-        },
-        "coursename": "ECE 260",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Wednesday": "10:30"
-        },
-        "coursename": "ECE 260",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Tuesday": "9:30"
-        },
-        "coursename": "MATH 101",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Tuesday": "9:30"
-        },
-        "coursename": "MATH 101",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Wednesday": "9:30"
-        },
-        "coursename": "MATH 101",
-        "room": null,
-        "professor": null,
-        "type": "Tutorial"
-    },
-    {
-        "starttime": {
-            "Wednesday": "9:30"
-        },
-        "coursename": "MATH 101",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
@@ -612,7 +1275,7 @@
         "starttime": {
             "Friday": "9:30"
         },
-        "coursename": "MATH 101",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
@@ -621,14 +1284,32 @@
         "starttime": {
             "Friday": "9:30"
         },
-        "coursename": "MATH 101",
+        "coursename": "MATH 110",
         "room": null,
         "professor": null,
         "type": "Tutorial"
     },
     {
         "starttime": {
-            "Thursday": "10:30"
+            "Friday": "9:30"
+        },
+        "coursename": "MATH 110",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "9:30"
+        },
+        "coursename": "MATH 110",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
         },
         "coursename": "MATH 109",
         "room": null,
@@ -640,6 +1321,384 @@
             "Friday": "10:30"
         },
         "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "10:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "14:30"
+        },
+        "coursename": "MATH 109",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "14:30"
+        },
+        "coursename": "MATH 100",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Monday": "11:30"
+        },
+        "coursename": "ECE 260",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Monday": "11:30"
+        },
+        "coursename": "ECE 260",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Monday": "12:30"
+        },
+        "coursename": "ECE 260",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 360",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Tuesday": "11:30"
+        },
+        "coursename": "CSC 360",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Wednesday": "11:30"
+        },
+        "coursename": "CSC 360",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "11:30"
+        },
+        "coursename": "CSC 320",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Thursday": "11:30"
+        },
+        "coursename": "CSC 320",
+        "room": null,
+        "professor": null,
+        "type": "Tutorial"
+    },
+    {
+        "starttime": {
+            "Friday": "11:30"
+        },
+        "coursename": "CSC 320",
         "room": null,
         "professor": null,
         "type": "Tutorial"
