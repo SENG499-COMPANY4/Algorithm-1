@@ -157,32 +157,7 @@ def check_possibility(finalSchedule):
         if len(rooms) != len(set(rooms)):
             print("Schedule is invalid, room conflict")
             outDict['valid'] = False
-            return outDict  
-    
-    slots = getAllTimeSlots(finalSchedule)
-    for slot in slots:
-        slotCourses = []
-        for course in finalSchedule:
-            if course['starttime'] == slot:
-                slotCourses.append(course)
-        print("Time: " + str(slot) + "\nCourse: " + str(slotCourses)) 
-        
-        profs = [i['professor'] for i in slotCourses]
-        profs = list(filter(lambda item: item is not None, profs))
-        #remove none values
-        profs = list(filter(lambda item: item != '', profs))
-        if len(profs) != len(set(profs)):
-            print("Schedule is invalid, prof conflict")
-            outDict['valid'] = False
-            return outDict        
-        
-        rooms = [i['room'] for i in slotCourses]
-        #remove none values
-        rooms = list(filter(lambda item: item is not None, rooms))
-        if len(rooms) != len(set(rooms)):
-            print("Schedule is invalid, room conflict")
-            outDict['valid'] = False
-            return outDict  
+            return outDict   
     
     return outDict
 

@@ -16,7 +16,7 @@
         },
         "coursename": "MATH 109",
         "room": "ECS 123",
-        "professor": "Sodhi, Asmita",
+        "professor": "Zeng, Shangzhi",
         "type": "Lecture"
     },
     {
@@ -26,7 +26,7 @@
         },
         "coursename": "MATH 100",
         "room": "ECS 123",
-        "professor": "Budney, Ryan",
+        "professor": "Thompson, Tom",
         "type": "Lecture"
     },
     {
@@ -76,7 +76,7 @@
         },
         "coursename": "CSC 230",
         "room": "ELL 168",
-        "professor": "Abdullah, Ahmad",
+        "professor": "Zastre, Michael",
         "type": "Lecture"
     },
     {
@@ -98,7 +98,7 @@
         },
         "coursename": "MATH 122",
         "room": "ECS 116",
-        "professor": "Schulz, Tyler",
+        "professor": "Noel, Jon",
         "type": "Lecture"
     },
     {
@@ -120,7 +120,7 @@
         },
         "coursename": "CHEM 101",
         "room": "ECS 123",
-        "professor": "Boice, Genevieve",
+        "professor": "Reimer, Monica",
         "type": "Lecture"
     },
     {
@@ -164,7 +164,7 @@
         },
         "coursename": "CSC 370",
         "room": "ECS 130",
-        "professor": "Thomo, Alex",
+        "professor": "Chester, Sean",
         "type": "Lecture"
     },
     {
@@ -175,7 +175,7 @@
         },
         "coursename": "CSC 360",
         "room": "ECS 108",
-        "professor": "Wu, Kui",
+        "professor": "Zastre, Michael",
         "type": "Lecture"
     },
     {
@@ -215,7 +215,7 @@
         },
         "coursename": "STAT 260",
         "room": "ECS 125",
-        "professor": "Olobatuyi, Kehinde",
+        "professor": "Edwards, Michelle",
         "type": "Lecture"
     },
     {
