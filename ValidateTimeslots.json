@@ -1,0 +1,629 @@
+{
+    "timeslots": [
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "8:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "9:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "9:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "10:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "10:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "11:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "11:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "12:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "12:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "13:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "14:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "14:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "15:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "16:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "16:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "17:00"
+        },
+        {
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "17:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "18:00"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "19:00"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "19:30"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "20:00"
+        },
+		{
+            "day": ["Monday"],
+            "length": 29,
+            "startTime": "20:30"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "8:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "9:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "9:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "10:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "10:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "11:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "11:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "12:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "12:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "13:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "14:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "14:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "15:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "16:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "16:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "17:00"
+        },
+        {
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "17:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "18:00"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "19:00"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "19:30"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "20:00"
+        },
+		{
+            "day": ["Tuesday"],
+            "length": 29,
+            "startTime": "20:30"
+        },
+		        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "8:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "9:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "9:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "10:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "10:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "11:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "11:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "12:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "12:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "13:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "14:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "14:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "15:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "16:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "16:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "17:00"
+        },
+        {
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "17:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "18:00"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "19:00"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "19:30"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "20:00"
+        },
+		{
+            "day": ["Wednesday"],
+            "length": 29,
+            "startTime": "20:30"
+        },
+		        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "8:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "9:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "9:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "10:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "10:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "11:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "11:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "12:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "12:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "13:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "14:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "14:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "15:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "16:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "16:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "17:00"
+        },
+        {
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "17:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "18:00"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "19:00"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "19:30"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "20:00"
+        },
+		{
+            "day": ["Thursday"],
+            "length": 29,
+            "startTime": "20:30"
+        },
+		        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "8:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "9:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "9:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "10:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "10:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "11:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "11:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "12:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "12:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "13:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "13:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "14:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "14:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "15:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "15:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "16:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "16:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "17:00"
+        },
+        {
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "17:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "18:00"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "18:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "19:00"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "19:30"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "20:00"
+        },
+		{
+            "day": ["Friday"],
+            "length": 29,
+            "startTime": "20:30"
+        }
+    ]
+}

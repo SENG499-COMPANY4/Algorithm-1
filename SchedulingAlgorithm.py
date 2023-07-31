@@ -3,7 +3,6 @@ import json
 import random
 import math
 from copy import deepcopy
-from difflib import SequenceMatcher
 
 #TYPES
 
@@ -129,8 +128,12 @@ def check_possibility(finalSchedule):
     outDict = {
         'valid' : True
     }
+    
+    globalTimeSlots['Validate'] = []
+    ValidateTimeslots = process_time_slots("Validate")
+    create_timeslots(ValidateTimeslots, "Validate")
 
-    assignmentTimeSlots = globalTimeSlots['Tutorial']
+    assignmentTimeSlots = globalTimeSlots['Validate']
     allTimeSlots = globalTimeSlots['Lecture'] + globalTimeSlots['Lab'] + globalTimeSlots['Tutorial']
     for slot in assignmentTimeSlots:
         slotDay = list(filter(lambda x: slot.day[x] is not None, slot.day))[0]
@@ -155,7 +158,7 @@ def check_possibility(finalSchedule):
             print("Schedule is invalid, room conflict")
             outDict['valid'] = False
             return outDict  
-    '''
+    
     slots = getAllTimeSlots(finalSchedule)
     for slot in slots:
         slotCourses = []
@@ -180,7 +183,7 @@ def check_possibility(finalSchedule):
             print("Schedule is invalid, room conflict")
             outDict['valid'] = False
             return outDict  
-    '''
+    
     return outDict
 
 #function: getAllTimeSlots
